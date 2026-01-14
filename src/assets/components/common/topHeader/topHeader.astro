@@ -1,0 +1,296 @@
+---
+// メインSCSSファイルをインポート
+import "../../../../styles/main.scss";
+
+import MenuItem from "./headerNaviMenuItem.astro";
+// 画像をインポート
+import logoImage from "../../../images/topHeader/logo-top-header.svg";
+import menuOpenImage from "../../../images/topHeader/menu-open.svg";
+---
+
+<header class="header">
+  <h1 class="header__logo">
+    <a class="header__logo-link" href="/">
+      <img class="header__logo-image" src={logoImage.src} alt="izuminoyu" />
+    </a>
+  </h1>
+  <div class="header__content">
+    <nav class="header__content-nav">
+      <ul class="header__content-nav-list">
+        <MenuItem href="#" text="営業日カレンダー" />
+        <MenuItem href="#" text="混雑状況" onlyPc={true} />
+        <MenuItem href="#" text="団体利用の方" onlyPc={true} />
+      </ul>
+    </nav>
+    <div class="header__content-sns only-pc">
+      <a class="header__content-sns-link" href="#" aria-label="X（Twitter）">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 76 76"
+          aria-hidden="true"
+        >
+          <circle cx="38" cy="38" r="38"></circle>
+          <path
+            d="M41.354 35.632L54.4794 20.3711H51.3691L39.9725 33.6221L30.8699 20.3711H20.3711L34.1359 40.4088L20.3711 56.4123H23.4817L35.5171 42.419L45.13 56.4123H55.6288L41.3537 35.632H41.3546H41.354ZM37.0937 40.5851L35.699 38.5899L24.6023 22.7131H29.3797L38.335 35.5262L39.7298 37.5214L51.3706 54.1765H46.5932L37.094 40.5857V40.5848L37.0937 40.5851Z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="header__content-tel only-pc">
+      <a class="header__content-tel-link" href="tel:0555822641">
+        <span class="header__content-tel-label"
+          >TEL. <span class="header__content-tel-number">0555-82-2641</span
+          ></span
+        >
+        <span class="header__content-tel-rubi">ふろよい</span>
+      </a>
+    </div>
+    <div class="header__content-menu-toggle">
+      <button
+        class="header__content-menu-toggle-button"
+        type="button"
+        aria-label="メニューを開く"
+      >
+        <img
+          class="header__content-menu-toggle-icon"
+          src={menuOpenImage.src}
+          alt=""
+        />
+      </button>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  // 必要なmixin/functionをインポート
+  @import "../../../../styles/variables";
+  @import "../../../../styles/functions";
+  @import "../../../../styles/mixins";
+
+  // ===========================================
+  // Header
+  // ===========================================
+  .header {
+    display: flex;
+    padding-top: spx(22);
+    justify-content: space-between;
+    align-items: center;
+    @include tablet-up {
+      padding-top: ppx(44 * 1.2);
+    }
+    @include desktop-up {
+      padding-top: ppx(44);
+    }
+
+    // Logo
+    &__logo {
+      margin-left: spx(31);
+      @include tablet-up {
+        margin-left: ppx(75 * 1.2);
+      }
+      @include desktop-up {
+        margin-left: ppx(75);
+      }
+    }
+
+    &__logo-link {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__logo-image {
+      height: auto;
+      width: spx(231);
+
+      @include tablet-up {
+        width: ppx(262 * 1.2);
+      }
+      @include desktop-up {
+        width: ppx(262);
+      }
+    }
+
+    // Content
+    &__content {
+      display: flex;
+      align-items: center;
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    // Navigation
+    &__content-nav {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__content-nav-list {
+      @include tablet-up {
+      }
+      @include desktop-up {
+        display: flex;
+        gap: ppx(10);
+      }
+    }
+
+    &__content-nav-item {
+      // コンポーネント側でスタイルを設定
+    }
+
+    &__content-nav-link {
+      // コンポーネント側でスタイルを設定
+    }
+
+    &__content-nav-text {
+      // コンポーネント側でスタイルを設定
+    }
+
+    // SNS
+    &__content-sns {
+      @include tablet-up {
+      }
+      @include desktop-up {
+        width: ppx(76);
+        height: ppx(76);
+        margin: 0 ppx(40);
+      }
+    }
+
+    &__content-sns-link {
+      @include tablet-up {
+      }
+      @include desktop-up {
+        width: 100%;
+      }
+      svg {
+        circle {
+          fill: white;
+          transition: fill 0.3s ease-in-out;
+        }
+        path {
+          fill: #7c6351;
+          transition: fill 0.3s ease-in-out;
+        }
+      }
+      @include hover {
+        &:hover {
+          svg {
+            circle {
+              fill: #7c6351;
+            }
+            path {
+              fill: white;
+            }
+          }
+        }
+      }
+    }
+
+    // Tel
+    &__content-tel {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__content-tel-link {
+      @include tablet-up {
+      }
+      @include desktop-up {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: max-content;
+      }
+    }
+
+    &__content-tel-label {
+      @include tablet-up {
+      }
+      @include desktop-up {
+        color: var(--main_color_1, #7c6351);
+        text-align: center;
+        font-family: "Zen Maru Gothic";
+        font-size: ppx(41);
+        font-style: normal;
+        font-weight: 700;
+        line-height: ppx(26);
+        letter-spacing: ppx(2.05);
+      }
+    }
+
+    &__content-tel-number {
+      @include tablet-up {
+      }
+      @include desktop-up {
+        color: var(--main_color_1, #7c6351);
+        font-family: "Zen Maru Gothic";
+        font-size: ppx(57);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%;
+        letter-spacing: ppx(2.85);
+      }
+    }
+
+    &__content-tel-rubi {
+      @include tablet-up {
+      }
+      @include desktop-up {
+        color: var(--main_color_1, #7c6351);
+        text-align: right;
+        font-family: "Zen Maru Gothic";
+        font-size: ppx(22);
+        font-style: normal;
+        font-weight: 700;
+        line-height: ppx(26);
+        letter-spacing: ppx(7.7);
+      }
+    }
+
+    // Menu Toggle
+    &__content-menu-toggle {
+      width: spx(75);
+      height: spx(64);
+      margin-right: spx(30);
+      margin-left: spx(33);
+      @include tablet-up {
+        width: ppx(71 * 1.2);
+        height: ppx(62 * 1.2);
+        margin-right: ppx(52 * 1.2);
+        margin-left: ppx(62 * 1.2);
+      }
+      @include desktop-up {
+        width: ppx(71);
+        height: ppx(62);
+        margin-right: ppx(52);
+        margin-left: ppx(62);
+      }
+    }
+
+    &__content-menu-toggle-button {
+      width: 100%;
+      height: 100%;
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__content-menu-toggle-icon {
+      width: 100%;
+      height: 100%;
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+  }
+</style>

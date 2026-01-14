@@ -24,7 +24,15 @@ html {
     //     opacity: 1;
     // }
     body {
-        @include zen-kaku-gothic-new-regular;
         background-color: #f0f0f0;
+    }
+}
+
+.only-pc {
+    display: none;
+    @include tablet-up {
+    }
+    @include desktop-up {
+        display: block;
     }
 }

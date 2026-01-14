@@ -1,6 +1,8 @@
 ---
 // メインSCSSファイルをインポート
 import "../styles/main.scss";
+
+import TopHeader from "../assets/components/common/topHeader/topHeader.astro";
 ---
 
 <html lang="ja">
@@ -10,11 +12,17 @@ import "../styles/main.scss";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
+
+    <!-- フォント Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Kuwarubi</h1>
-    <p class="test">SCSSテスト</p>
-    <p>テンプレート</p>
+    <TopHeader />
   </body>
 </html>
 
@@ -23,23 +31,7 @@ import "../styles/main.scss";
   @import "../styles/variables";
   @import "../styles/functions";
   @import "../styles/mixins";
-
-  $primary-color: #ff6b35;
-
-  .test {
-    color: $primary-color;
-    font-size: spx(20);
-    @include tablet-up {
-      font-size: tpx(24);
-      color: rgb(0, 255, 110);
-    }
-    @include desktop-up {
-      font-size: ppx(28);
-      color: rgb(0, 110, 255);
-    }
-
-    &:hover {
-      color: darken($primary-color, 20%);
-    }
+  body {
+    display: block; //最後に消す
   }
 </style>
