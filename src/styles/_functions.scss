@@ -1,0 +1,29 @@
+// SCSS関数
+// プロジェクト全体で使用するカスタム関数をここに定義してください
+
+// variablesはmain.scssで読み込まれるため、ここでは削除
+
+//px→vw変換
+@function ppx($num_pc, $width_pc: $viewport_pc) {
+    // px単位を削除
+    @if (type-of($num_pc) == "number" and unit($num_pc) == "px") {
+        $num_pc: $num_pc / 1px;
+    }
+    @return (1vw * $num_pc / $width_pc * 100);
+}
+//tab用
+@function tpx($num_tab, $width_tab: $viewport_tab) {
+    // px単位を削除
+    @if (type-of($num_tab) == "number" and unit($num_tab) == "px") {
+        $num_tab: $num_tab / 1px;
+    }
+    @return (1vw * $num_tab / $width_tab * 100);
+}
+//sp用
+@function spx($num_sp, $width_sp: $viewport_sp) {
+    // px単位を削除
+    @if (type-of($num_sp) == "number" and unit($num_sp) == "px") {
+        $num_sp: $num_sp / 1px;
+    }
+    @return (1vw * $num_sp / $width_sp * 100);
+}

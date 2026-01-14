@@ -1,0 +1,15 @@
+{
+  "cSpell.words": [
+    "contenteditable",
+    "destyle",
+    "hamayouresort",
+    "kaku",
+    "kuwarubi",
+    "stylable",
+    "styleable"
+  ],
+  "[astro]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

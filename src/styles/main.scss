@@ -1,0 +1,30 @@
+// メインSCSSファイル - すべてのスタイルをここでまとめます
+
+// 1. 変数（最初に読み込む）
+@import "variables";
+
+// 2. 関数とミックスイン（変数の後に読み込む）
+@import "functions";
+@import "mixins";
+
+// 3. リセットCSS
+@import "reset";
+
+// 4. その他のスタイル（必要に応じて追加）
+html {
+    // Flash Of Unstyled Text
+    // visibility: hidden;
+    // opacity: 0;
+
+    // スクロールのスムーズな動き
+    scroll-behavior: smooth;
+    // &.wf-active,
+    // &.loading-delay {
+    //     visibility: visible;
+    //     opacity: 1;
+    // }
+    body {
+        @include zen-kaku-gothic-new-regular;
+        background-color: #f0f0f0;
+    }
+}

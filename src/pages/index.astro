@@ -1,0 +1,45 @@
+---
+// メインSCSSファイルをインポート
+import "../styles/main.scss";
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>Kuwarubi</h1>
+    <p class="test">SCSSテスト</p>
+    <p>テンプレート</p>
+  </body>
+</html>
+
+<style lang="scss">
+  // 必要なmixin/functionをインポート
+  @import "../styles/variables";
+  @import "../styles/functions";
+  @import "../styles/mixins";
+
+  $primary-color: #ff6b35;
+
+  .test {
+    color: $primary-color;
+    font-size: spx(20);
+    @include tablet-up {
+      font-size: tpx(24);
+      color: rgb(0, 255, 110);
+    }
+    @include desktop-up {
+      font-size: ppx(28);
+      color: rgb(0, 110, 255);
+    }
+
+    &:hover {
+      color: darken($primary-color, 20%);
+    }
+  }
+</style>

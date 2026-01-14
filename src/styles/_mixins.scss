@@ -1,0 +1,38 @@
+// SCSS Mixins
+// プロジェクト全体で使用するミックスインをここに定義してください
+
+// variablesはmain.scssで読み込まれるため、ここでは削除
+
+// モバイルファースト用メディアクエリ設定
+@mixin tablet-up {
+    // タブレット以上のデバイス向け
+    @media (min-width: $breakpoint-tablet-up) {
+        @content;
+    }
+}
+
+@mixin desktop-up {
+    // PC以上のデバイス向け
+    @media (min-width: $breakpoint-desktop-up) {
+        @content;
+    }
+}
+
+@mixin hover {
+    @media (hover: hover) {
+        @content;
+    }
+}
+
+// フォント
+@mixin zen-kaku-gothic-new-regular {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin zen-kaku-gothic-new-bold {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
