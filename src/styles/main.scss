@@ -36,3 +36,31 @@ html {
         display: block;
     }
 }
+
+.only-over-tab {
+    display: none;
+    @include tablet-up {
+        display: block;
+    }
+    @include desktop-up {
+        display: block;
+    }
+}
+.only-under-tab {
+    display: block;
+    @include tablet-up {
+        display: block;
+    }
+    @include desktop-up {
+        display: none;
+    }
+}
+.only-only-sp {
+    display: block;
+    @include tablet-up {
+        display: none;
+    }
+    @include desktop-up {
+        display: none;
+    }
+}

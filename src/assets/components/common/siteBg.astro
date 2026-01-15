@@ -1,0 +1,68 @@
+---
+// メインSCSSファイルをインポート
+import "../../../styles/main.scss";
+
+import { getImage } from "astro:assets";
+import pageBgImage from "../../images/common/bg/page-bg.jpg";
+
+const optimizedImage = await getImage({
+  src: pageBgImage,
+  format: "webp", // WebP形式で最適化
+  quality: 85, // 品質を明示的に指定（85%推奨）
+  widths: [360, 1024, 1280],
+});
+---
+
+<div class="site-bg" aria-hidden="true">
+  <picture class="site-bg__picture">
+    <!-- デスクトップ（1024px以上）→ 最高解像度版 -->
+    <source
+      media="(min-width: 1024px)"
+      srcset={optimizedImage.srcSet.attribute}
+    />
+    <!-- タブレット（744px以上）→ 中解像度版 -->
+    <source
+      media="(min-width: 744px)"
+      srcset={optimizedImage.srcSet.attribute}
+    />
+    <!-- スマホ（744px未満）→ 最小解像度版 -->
+    <img src={optimizedImage.src} alt="" class="site-bg__img" />
+  </picture>
+</div>
+
+<style lang="scss">
+  // 必要なmixin/functionをインポート
+  @import "../../../styles/variables";
+  @import "../../../styles/functions";
+  @import "../../../styles/mixins";
+
+  .site-bg {
+    width: 100vw;
+    height: 100dvh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    @include tablet-up {
+    }
+    @include desktop-up {
+    }
+
+    &__picture {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+  }
+</style>

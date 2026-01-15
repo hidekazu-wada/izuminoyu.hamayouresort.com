@@ -1,0 +1,483 @@
+---
+// メインSCSSファイルをインポート
+import "../../../../styles/main.scss";
+
+import footerLogoIzumi from "../../../images/footer/imag-logo-izumi.svg";
+import footerLogoHamayou from "../../../images/footer/logo-hamayou.svg";
+import footerLogoGnome from "../../../images/footer/logo-gnome.svg";
+import footerLogoKuwarubi from "../../../images/footer/logo-kuwarubi.svg";
+import footerWave from "../../../images/footer/wave-footer.svg";
+---
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__main">
+      <div class="footer__logo">
+        <a class="footer__logo-link" href="#">
+          <img
+            class="footer__logo-img"
+            src={footerLogoIzumi.src}
+            alt="Izuminoyu"
+          />
+        </a>
+      </div>
+      <div class="footer__info">
+        <address class="footer__address">
+          〒401-0332 <br class="only-only-sp" /><span
+            class="footer__address-detail"
+            >山梨県南都留郡富士河口湖町西湖９８７</span
+          >
+        </address>
+        <ul class="footer__contact">
+          <li class="footer__contact-item">
+            <a
+              class="footer__contact-links footer__tel-link"
+              href="tel:0555822641"
+            >
+              <div class="footer__tel-content">
+                <div class="footer__tel-label">ふろよい</div>
+                <p class="footer__tel-number">
+                  <span class="footer__tel-number-text"
+                    >TEL. <span>0555-82-2641</span></span
+                  >
+                </p>
+              </div>
+            </a>
+          </li>
+          <li class="footer__contact-item">
+            <a class="footer__contact-links footer__hours-link" href="#">
+              <div class="footer__hours">営業日・営業時間はこちら</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <small class="footer__copyright">©HAMAYOU RESORT</small>
+    <img class="footer__wave" src={footerWave.src} alt="" aria-hidden="true" />
+  </div>
+  <nav class="footer__links">
+    <ul class="footer__links-list">
+      <li class="footer__links-item hamayou">
+        <a class="footer__links-link" href="">
+          <img
+            class="footer__links-img"
+            src={footerLogoHamayou.src}
+            alt="Hamayou resort"
+          />
+        </a>
+      </li>
+      <li class="footer__links-item gnome">
+        <a class="footer__links-link" href="">
+          <img
+            class="footer__links-img"
+            src={footerLogoGnome.src}
+            alt="Gnome"
+          />
+        </a>
+      </li>
+      <li class="footer__links-item kuwarubi">
+        <a class="footer__links-link" href="">
+          <img
+            class="footer__links-img"
+            src={footerLogoKuwarubi.src}
+            alt="Kuwarubi"
+          />
+        </a>
+      </li>
+    </ul>
+  </nav>
+</footer>
+
+<style lang="scss">
+  // 必要なmixin/functionをインポート
+  @import "../../../../styles/variables";
+  @import "../../../../styles/functions";
+  @import "../../../../styles/mixins";
+
+  .footer {
+    @include tablet-up {
+    }
+    @include desktop-up {
+    }
+
+    &__inner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: spx(50);
+      padding-top: spx(90);
+      padding-bottom: spx(88);
+      overflow-y: hidden;
+      @include tablet-up {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: tpx(50);
+        padding-top: tpx(90);
+        padding-bottom: tpx(181);
+      }
+      @include desktop-up {
+        gap: ppx(234);
+        padding-top: ppx(90);
+        padding-bottom: ppx(220);
+      }
+    }
+
+    &__main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: spx(50);
+      @include tablet-up {
+        align-items: flex-start;
+        flex-direction: row;
+        gap: tpx(50);
+      }
+      @include desktop-up {
+        gap: ppx(65);
+      }
+    }
+
+    &__logo {
+      width: spx(350);
+      height: auto;
+      @include tablet-up {
+        width: tpx(275 * 1.2);
+      }
+      @include desktop-up {
+        width: ppx(350);
+      }
+    }
+
+    &__logo-link {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__logo-img {
+      width: 100%;
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: spx(30);
+      @include tablet-up {
+        align-items: flex-start;
+        gap: tpx(17);
+        margin-top: tpx(38);
+      }
+      @include desktop-up {
+        gap: ppx(17);
+        margin-top: ppx(98);
+      }
+    }
+
+    &__address {
+      color: var(--black, #000);
+      font-family: "Zen Maru Gothic";
+      font-size: spx(28);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+      letter-spacing: spx(1.4);
+      @include tablet-up {
+        font-size: tpx(33);
+        line-height: 180%; /* 59.4px */
+        letter-spacing: tpx(1.65);
+      }
+      @include desktop-up {
+        font-size: ppx(33);
+        letter-spacing: ppx(1.65);
+      }
+    }
+
+    &__address-detail {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__contact {
+      display: flex;
+      flex-direction: column;
+      gap: spx(15);
+      @include tablet-up {
+        flex-direction: row;
+        gap: tpx(20);
+      }
+      @include desktop-up {
+        gap: ppx(20);
+      }
+    }
+
+    &__contact-item {
+      width: spx(572);
+      height: spx(90);
+      display: grid;
+      place-items: center;
+
+      @include tablet-up {
+        width: tpx(572);
+        height: tpx(105);
+      }
+      @include desktop-up {
+        width: ppx(572);
+        height: ppx(105);
+      }
+    }
+
+    &__contact-links {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      border-radius: spx(20);
+      background: var(--white, #fff);
+      color: var(--main_color_1, #7c6351);
+      transition:
+        background 0.3s ease-in-out,
+        color 0.3s ease-in-out;
+      @include tablet-up {
+        border-radius: tpx(20);
+      }
+      @include desktop-up {
+        border-radius: ppx(20);
+      }
+      @include hover {
+        &:hover {
+          background: var(--yellow_1, #d6b156);
+          color: var(--white, #fff);
+        }
+      }
+    }
+
+    &__tel-link {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__hours-link {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+    &__tel-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      width: max-content;
+      height: 100%;
+    }
+
+    &__tel-label {
+      font-family: "Zen Maru Gothic";
+      font-size: spx(18);
+      font-style: normal;
+      font-weight: 700;
+      line-height: spx(26); /* 144.444% */
+      letter-spacing: spx(8.1);
+      @include tablet-up {
+        font-size: tpx(20);
+        line-height: 130%;
+        letter-spacing: tpx(6.2);
+      }
+      @include desktop-up {
+        font-size: ppx(20);
+        letter-spacing: ppx(6.2);
+      }
+    }
+
+    &__tel-number {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__tel-number-text {
+      font-family: "Zen Maru Gothic";
+      font-size: spx(41);
+      font-style: normal;
+      font-weight: 700;
+      line-height: spx(26); /* 63.415% */
+      letter-spacing: spx(2.05);
+      display: block;
+      margin-top: spx(-8);
+      @include tablet-up {
+        font-size: tpx(41);
+        line-height: 63.415%;
+        letter-spacing: tpx(2.05);
+        margin-top: tpx(-8);
+      }
+      @include desktop-up {
+        font-size: ppx(41);
+        letter-spacing: ppx(2.05);
+        margin-top: ppx(-8);
+      }
+      span {
+        font-family: "Zen Maru Gothic";
+        font-size: spx(51);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%;
+        letter-spacing: spx(2.55);
+        @include tablet-up {
+          font-size: tpx(51);
+          letter-spacing: tpx(2.55);
+        }
+        @include desktop-up {
+          font-size: ppx(51);
+          letter-spacing: ppx(2.55);
+        }
+      }
+    }
+
+    &__hours {
+      font-family: "Zen Maru Gothic";
+      font-size: spx(30);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 180%; /* 54px */
+      letter-spacing: spx(1.5);
+      @include tablet-up {
+        font-size: tpx(36);
+        letter-spacing: tpx(1.8);
+      }
+      @include desktop-up {
+        font-size: ppx(36);
+        letter-spacing: ppx(1.8);
+      }
+    }
+
+    &__copyright {
+      color: var(--main_color_1, #7c6351);
+      font-family: "Zen Maru Gothic";
+      font-size: spx(24);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 200%;
+      letter-spacing: spx(4.08);
+      @include tablet-up {
+        font-size: tpx(22);
+        letter-spacing: tpx(4.08);
+        margin-top: tpx(146);
+      }
+      @include desktop-up {
+        font-size: ppx(24);
+        letter-spacing: ppx(4.08);
+        margin-top: ppx(209);
+      }
+    }
+
+    &__wave {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: auto;
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__links {
+      background: rgba(124, 99, 81, 0.7);
+      padding-top: spx(20);
+      padding-bottom: spx(40);
+      @include tablet-up {
+        padding-top: 0;
+        padding-bottom: tpx(80);
+      }
+      @include desktop-up {
+        padding-top: ppx(20);
+        padding-bottom: ppx(80);
+      }
+    }
+
+    &__links-list {
+      display: flex;
+      justify-content: center;
+      gap: spx(40);
+      @include tablet-up {
+        justify-content: flex-end;
+        margin-right: tpx(150);
+        gap: tpx(110);
+      }
+      @include desktop-up {
+        margin-right: ppx(260);
+        gap: ppx(110);
+      }
+    }
+
+    &__links-item {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    .hamayou {
+      width: spx(249.324);
+      height: auto;
+      @include tablet-up {
+        width: tpx(375);
+      }
+      @include desktop-up {
+        width: ppx(375);
+      }
+    }
+
+    .gnome {
+      width: spx(152.919);
+      height: auto;
+      @include tablet-up {
+        width: tpx(230);
+      }
+      @include desktop-up {
+        width: ppx(230);
+      }
+    }
+
+    .kuwarubi {
+      width: spx(132.973);
+      height: auto;
+      @include tablet-up {
+        width: tpx(200);
+      }
+      @include desktop-up {
+        width: ppx(200);
+      }
+    }
+
+    &__links-link {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__links-img {
+      width: 100%;
+      height: auto;
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+  }
+</style>

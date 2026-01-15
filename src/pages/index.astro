@@ -2,27 +2,18 @@
 // メインSCSSファイルをインポート
 import "../styles/main.scss";
 
+import Head from "../assets/components/common/head.astro";
 import TopHeader from "../assets/components/common/topHeader/topHeader.astro";
+import SiteBg from "../assets/components/common/siteBg.astro";
+import Footer from "../assets/components/common/footer/footer.astro";
 ---
 
 <html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-
-    <!-- フォント Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <Head />
   <body>
+    <SiteBg />
     <TopHeader />
+    <Footer />
   </body>
 </html>
 

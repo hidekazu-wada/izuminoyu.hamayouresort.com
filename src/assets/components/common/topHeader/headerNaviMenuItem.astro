@@ -4,13 +4,13 @@ import "../../../../styles/main.scss";
 interface Props {
   href?: string;
   text: string;
-  onlyPc?: boolean;
+  onlyOverTab?: boolean;
 }
 
-const { href = "#", text, onlyPc = false } = Astro.props;
+const { href = "#", text, onlyOverTab = false } = Astro.props;
 ---
 
-<li class={`header__content-nav-item ${onlyPc ? "only-pc" : ""}`}>
+<li class={`header__content-nav-item ${onlyOverTab ? "only-over-tab" : ""}`}>
   <a class="header__content-nav-link" href={href}>
     <!--?xml version="1.0" encoding="UTF-8"?-->
     <svg
@@ -44,7 +44,7 @@ const { href = "#", text, onlyPc = false } = Astro.props;
     width: spx(257);
     height: auto;
     @include tablet-up {
-      width: ppx(360 * 1.2);
+      width: tpx(360);
     }
     @include desktop-up {
       width: ppx(360);
@@ -54,6 +54,12 @@ const { href = "#", text, onlyPc = false } = Astro.props;
       height: 100%;
       svg.menu-item-bg {
         display: block;
+        @include tablet-up {
+          transform: scaleY(0.9);
+        }
+        @include desktop-up {
+          transform: scaleY(0.8);
+        }
         path {
           fill: white;
           transition: fill 0.3s ease-in-out;
@@ -75,9 +81,9 @@ const { href = "#", text, onlyPc = false } = Astro.props;
         transform: translate(-50%, -50%);
         width: 100%;
         @include tablet-up {
-          font-size: ppx(30 * 1.2);
-          line-height: ppx(26 * 1.2); /* 86.667% */
-          letter-spacing: ppx(0.9 * 1.2);
+          font-size: tpx(30);
+          line-height: tpx(26); /* 86.667% */
+          letter-spacing: tpx(0.9);
         }
         @include desktop-up {
           font-size: ppx(30);

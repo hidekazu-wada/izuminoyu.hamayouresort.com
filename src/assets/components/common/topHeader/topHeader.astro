@@ -18,8 +18,8 @@ import menuOpenImage from "../../../images/topHeader/menu-open.svg";
     <nav class="header__content-nav">
       <ul class="header__content-nav-list">
         <MenuItem href="#" text="営業日カレンダー" />
-        <MenuItem href="#" text="混雑状況" onlyPc={true} />
-        <MenuItem href="#" text="団体利用の方" onlyPc={true} />
+        <MenuItem href="#" text="混雑状況" onlyOverTab={true} />
+        <MenuItem href="#" text="団体利用の方" onlyOverTab={true} />
       </ul>
     </nav>
     <div class="header__content-sns only-pc">
@@ -76,7 +76,7 @@ import menuOpenImage from "../../../images/topHeader/menu-open.svg";
     justify-content: space-between;
     align-items: center;
     @include tablet-up {
-      padding-top: ppx(44 * 1.2);
+      padding-top: tpx(44);
     }
     @include desktop-up {
       padding-top: ppx(44);
@@ -86,7 +86,7 @@ import menuOpenImage from "../../../images/topHeader/menu-open.svg";
     &__logo {
       margin-left: spx(31);
       @include tablet-up {
-        margin-left: ppx(75 * 1.2);
+        margin-left: tpx(71);
       }
       @include desktop-up {
         margin-left: ppx(75);
@@ -105,7 +105,7 @@ import menuOpenImage from "../../../images/topHeader/menu-open.svg";
       width: spx(231);
 
       @include tablet-up {
-        width: ppx(262 * 1.2);
+        width: tpx(262);
       }
       @include desktop-up {
         width: ppx(262);
@@ -132,9 +132,10 @@ import menuOpenImage from "../../../images/topHeader/menu-open.svg";
 
     &__content-nav-list {
       @include tablet-up {
+        display: flex;
+        gap: tpx(10);
       }
       @include desktop-up {
-        display: flex;
         gap: ppx(10);
       }
     }
@@ -262,10 +263,10 @@ import menuOpenImage from "../../../images/topHeader/menu-open.svg";
       margin-right: spx(30);
       margin-left: spx(33);
       @include tablet-up {
-        width: ppx(71 * 1.2);
-        height: ppx(62 * 1.2);
-        margin-right: ppx(52 * 1.2);
-        margin-left: ppx(62 * 1.2);
+        width: tpx(94);
+        height: tpx(82);
+        margin-right: tpx(55);
+        margin-left: tpx(50);
       }
       @include desktop-up {
         width: ppx(71);
