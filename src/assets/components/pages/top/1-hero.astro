@@ -1,0 +1,181 @@
+---
+// メインSCSSファイルをインポート
+import "../../../../styles/main.scss";
+
+import HeroBgSpImage from "../../../images/top/1-hero/sp.svg";
+import HeroBgTabImage from "../../../images/top/1-hero/tab.svg";
+import HeroBgPcImage from "../../../images/top/1-hero/pc.svg";
+---
+
+<section class="hero">
+  <!-- 背景 -->
+  <div class="hero__bg">
+    <picture class="hero__bg-picture">
+      <source srcset={HeroBgPcImage.src} media="(min-width: 1024px)" />
+      <source srcset={HeroBgTabImage.src} media="(min-width: 744px)" />
+      <img src={HeroBgSpImage.src} alt="Hero Background" class="hero__bg-img" />
+    </picture>
+  </div>
+  <!-- タイトル -->
+  <h2 class="hero__title">
+    <div class="hero__title-row first">
+      <span class="hero__title-char notranslate" translate="no">み</span>
+      <span class="hero__title-char notranslate" translate="no">ん</span>
+      <span class="hero__title-char notranslate" translate="no">な</span>
+      <span class="hero__title-char notranslate" translate="no">で</span>
+    </div>
+    <div class="hero__title-row second">
+      <span class="hero__title-char notranslate" translate="no">と</span>
+      <span class="hero__title-char notranslate" translate="no">と</span>
+      <span class="hero__title-char notranslate" translate="no">の</span>
+      <span class="hero__title-char notranslate" translate="no">う</span>
+    </div>
+  </h2>
+</section>
+
+<style lang="scss">
+  // 必要なmixin/functionをインポート
+  @import "../../../../styles/variables";
+  @import "../../../../styles/functions";
+  @import "../../../../styles/mixins";
+
+  .hero {
+    position: relative;
+    z-index: 1;
+    @include tablet-up {
+    }
+    @include desktop-up {
+    }
+
+    &__bg {
+      width: 100vw;
+      height: auto;
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+
+      &-picture {
+        @include tablet-up {
+        }
+        @include desktop-up {
+        }
+      }
+
+      &-img {
+        width: 100%;
+        @include tablet-up {
+        }
+        @include desktop-up {
+        }
+      }
+    }
+
+    &__title {
+      position: absolute;
+      top: spx(112);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: spx(48);
+      @include tablet-up {
+        top: tpx(92);
+        gap: tpx(52);
+      }
+      @include desktop-up {
+        top: ppx(122);
+        gap: ppx(75);
+      }
+
+      &-row {
+        text-align: center;
+        font-family: "Zen Maru Gothic";
+        font-size: spx(60);
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%; /* 84px */
+        letter-spacing: spx(3);
+        @include tablet-up {
+          font-size: tpx(70);
+          letter-spacing: tpx(3.5);
+        }
+        @include desktop-up {
+          font-size: ppx(83);
+          letter-spacing: ppx(4.15);
+        }
+        &.first {
+          color: var(--main_color_1, #7c6351);
+        }
+        &.second {
+          color: var(--main_color_3, #f1eae4);
+        }
+      }
+
+      &-char {
+        display: block;
+        opacity: 0;
+        transform: translateY(10px);
+        @include tablet-up {
+        }
+        @include desktop-up {
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  // DOMが読み込まれた後にアニメーションを実行
+  document.addEventListener("DOMContentLoaded", () => {
+    const firstRowChars = document.querySelectorAll(
+      ".hero__title-row.first .hero__title-char",
+    );
+    const secondRowChars = document.querySelectorAll(
+      ".hero__title-row.second .hero__title-char",
+    );
+
+    // 要素が見つからない場合は処理をスキップ
+    if (firstRowChars.length === 0 || secondRowChars.length === 0) {
+      console.warn("Hero title characters not found");
+      return;
+    }
+
+    console.log("GSAP animation starting", {
+      firstRowChars: firstRowChars.length,
+      secondRowChars: secondRowChars.length,
+    });
+
+    // 1秒待ってからアニメーションを開始
+    setTimeout(() => {
+      // first行のアニメーション
+      gsap.to(firstRowChars, {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        stagger: {
+          each: 0.08, // 各文字の間隔を0.3秒に設定（前の文字が完了する前に次の文字が始まる）
+          from: "start",
+        },
+        onComplete: () => {
+          // first行が完了したら、ワンテンポ（0.3秒）待ってからsecond行を開始
+          setTimeout(() => {
+            gsap.to(secondRowChars, {
+              opacity: 1,
+              y: 0,
+              duration: 1.2,
+              ease: "power2.out",
+              stagger: {
+                each: 0.08, // 各文字の間隔を0.3秒に設定（前の文字が完了する前に次の文字が始まる）
+                from: "start",
+              },
+            });
+          }, 50); // ワンテンポ（0.05秒）
+        },
+      });
+    }, 500); // ページ読み込み後1秒待ってからアニメーション開始
+  });
+</script>

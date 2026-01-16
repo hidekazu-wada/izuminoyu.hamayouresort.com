@@ -1,0 +1,84 @@
+---
+// メインSCSSファイルをインポート
+import "../../../../styles/main.scss";
+---
+
+<!-- リード -->
+<section class="lead">
+  <h3 class="lead__title">Unwind Together</h3>
+  <p class="lead__text">
+    違いを気にせず、みんなが気持ちよく。<br />
+    いずみの湯は、年齢も文化もスタイルも超えて、安心してくつろげる温泉です。<br
+    />
+    タトゥーフレンドリーの時間も明確に、家族でのびのび、学生やキャンパーも気兼ねなく。<br
+    />
+    お互いを思いやるだけで、心地よさはちゃんと分かち合える——みんなで、ととのう。
+  </p>
+</section>
+
+<style lang="scss">
+  // 必要なmixin/functionをインポート
+  @import "../../../../styles/variables";
+  @import "../../../../styles/functions";
+  @import "../../../../styles/mixins";
+
+  .lead {
+    background: var(--green_1, #8aad61);
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 500;
+    color: var(--main_color_3, #f1eae4);
+    text-align: center;
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    gap: spx(20);
+    padding-top: spx(60);
+    padding-bottom: spx(100);
+    @include tablet-up {
+      gap: tpx(20);
+      padding-top: tpx(9);
+      padding-bottom: tpx(128);
+    }
+    @include desktop-up {
+      gap: ppx(40);
+      padding-top: ppx(70);
+      padding-bottom: ppx(160);
+    }
+
+    &__title {
+      font-size: spx(55);
+      font-weight: 500;
+      line-height: 1.8;
+      color: var(--main_color_3, #f1eae4);
+      text-align: center;
+
+      @include tablet-up {
+        font-size: tpx(75);
+        letter-spacing: tpx(3.75);
+      }
+      @include desktop-up {
+        font-size: ppx(75);
+        letter-spacing: ppx(3.75);
+      }
+    }
+
+    &__text {
+      font-size: spx(28);
+      font-weight: 500;
+      line-height: 1.8;
+      color: var(--main_color_3, #f1eae4);
+      width: spx(590);
+      margin: 0 auto;
+      @include tablet-up {
+        font-size: tpx(34);
+        letter-spacing: tpx(1.7);
+        width: tpx(1624);
+      }
+      @include desktop-up {
+        font-size: ppx(32);
+        letter-spacing: ppx(1.6);
+        width: 54vw;
+      }
+    }
+  }
+</style>

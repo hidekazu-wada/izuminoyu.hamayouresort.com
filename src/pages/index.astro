@@ -6,6 +6,122 @@ import Head from "../assets/components/common/head.astro";
 import TopHeader from "../assets/components/common/topHeader/topHeader.astro";
 import SiteBg from "../assets/components/common/siteBg.astro";
 import Footer from "../assets/components/common/footer/footer.astro";
+import Hero from "../assets/components/pages/top/1-hero.astro";
+import Lead from "../assets/components/pages/top/2-lead.astro";
+
+import { getImage } from "astro:assets";
+import SliderImageSp1 from "../assets/images/top/3-mainSlider/1-sp.png";
+import SliderImagePc1 from "../assets/images/top/3-mainSlider/1-pc.png";
+import SliderImageSp2 from "../assets/images/top/3-mainSlider/2-sp.png";
+import SliderImagePc2 from "../assets/images/top/3-mainSlider/2-pc.png";
+import SliderImageSp3 from "../assets/images/top/3-mainSlider/3-sp.png";
+import SliderImagePc3 from "../assets/images/top/3-mainSlider/3-pc.png";
+import SliderImageSp4 from "../assets/images/top/3-mainSlider/4-sp.png";
+import SliderImagePc4 from "../assets/images/top/3-mainSlider/4-pc.png";
+import SliderImageSp5 from "../assets/images/top/3-mainSlider/5-sp.png";
+import SliderImagePc5 from "../assets/images/top/3-mainSlider/5-pc.png";
+import SliderImageSp6 from "../assets/images/top/3-mainSlider/6-sp.png";
+import SliderImagePc6 from "../assets/images/top/3-mainSlider/6-pc.png";
+import SliderImageSp7 from "../assets/images/top/3-mainSlider/7-sp.png";
+import SliderImagePc7 from "../assets/images/top/3-mainSlider/7-pc.png";
+
+const ImageSp1 = await getImage({
+  src: SliderImageSp1,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc1 = await getImage({
+  src: SliderImagePc1,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+
+const ImageSp2 = await getImage({
+  src: SliderImageSp2,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc2 = await getImage({
+  src: SliderImagePc2,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+
+const ImageSp3 = await getImage({
+  src: SliderImageSp3,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc3 = await getImage({
+  src: SliderImagePc3,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+
+const ImageSp4 = await getImage({
+  src: SliderImageSp4,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc4 = await getImage({
+  src: SliderImagePc4,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+
+const ImageSp5 = await getImage({
+  src: SliderImageSp5,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc5 = await getImage({
+  src: SliderImagePc5,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+
+const ImageSp6 = await getImage({
+  src: SliderImageSp6,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc6 = await getImage({
+  src: SliderImagePc6,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+
+const ImageSp7 = await getImage({
+  src: SliderImageSp7,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc7 = await getImage({
+  src: SliderImagePc7,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
 ---
 
 <html lang="ja">
@@ -13,6 +129,28 @@ import Footer from "../assets/components/common/footer/footer.astro";
   <body>
     <SiteBg />
     <TopHeader />
+    <main>
+      <Hero />
+      <Lead />
+      <!-- メインスライダー -->
+      <section class="section">
+        <!-- 一つのスライド -->
+        <picture class="">
+          <!-- デスクトップ（1024px以上）→ 最高解像度版 -->
+          <source
+            media="(min-width: 1024px)"
+            srcset={ImagePc1.srcSet.attribute}
+          />
+          <!-- タブレット（744px以上）→ 中解像度版 -->
+          <source
+            media="(min-width: 744px)"
+            srcset={ImagePc1.srcSet.attribute}
+          />
+          <!-- スマホ（744px未満）→ 最小解像度版 -->
+          <img src={ImageSp1.src} alt="スライダー画像1" class="" />
+        </picture>
+      </section>
+    </main>
     <Footer />
   </body>
 </html>
@@ -22,7 +160,13 @@ import Footer from "../assets/components/common/footer/footer.astro";
   @import "../styles/variables";
   @import "../styles/functions";
   @import "../styles/mixins";
-  body {
-    display: block; //最後に消す
+  main {
+    padding-top: spx(176);
+    @include tablet-up {
+      padding-top: tpx(185);
+    }
+    @include desktop-up {
+      padding-top: ppx(182);
+    }
   }
 </style>
