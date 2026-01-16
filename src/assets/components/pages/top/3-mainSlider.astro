@@ -1,0 +1,599 @@
+---
+// メインSCSSファイルをインポート
+import "../../../../styles/main.scss";
+
+import { getImage } from "astro:assets";
+import SliderImageSp1 from "../../../images/top/3-mainSlider/1-sp.png";
+import SliderImagePc1 from "../../../images/top/3-mainSlider/1-pc.png";
+import SliderImageSp2 from "../../../images/top/3-mainSlider/2-sp.png";
+import SliderImagePc2 from "../../../images/top/3-mainSlider/2-pc.png";
+import SliderImageSp3 from "../../../images/top/3-mainSlider/3-sp.png";
+import SliderImagePc3 from "../../../images/top/3-mainSlider/3-pc.png";
+import SliderImageSp4 from "../../../images/top/3-mainSlider/4-sp.png";
+import SliderImagePc4 from "../../../images/top/3-mainSlider/4-pc.png";
+import SliderImageSp5 from "../../../images/top/3-mainSlider/5-sp.png";
+import SliderImagePc5 from "../../../images/top/3-mainSlider/5-pc.png";
+import SliderImageSp6 from "../../../images/top/3-mainSlider/6-sp.png";
+import SliderImagePc6 from "../../../images/top/3-mainSlider/6-pc.png";
+import SliderImageSp7 from "../../../images/top/3-mainSlider/7-sp.png";
+import SliderImagePc7 from "../../../images/top/3-mainSlider/7-pc.png";
+import SliderWave from "../../../images/top/3-mainSlider/wave.svg";
+import SliderSmoke1 from "../../../images/top/3-mainSlider/smoke-1.svg";
+import SliderSmoke2 from "../../../images/top/3-mainSlider/smoke-2.svg";
+import SliderSmoke3 from "../../../images/top/3-mainSlider/smoke-3.svg";
+
+const ImageSp1 = await getImage({
+  src: SliderImageSp1,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc1 = await getImage({
+  src: SliderImagePc1,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+
+const ImageSp2 = await getImage({
+  src: SliderImageSp2,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc2 = await getImage({
+  src: SliderImagePc2,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+
+const ImageSp3 = await getImage({
+  src: SliderImageSp3,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc3 = await getImage({
+  src: SliderImagePc3,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+
+const ImageSp4 = await getImage({
+  src: SliderImageSp4,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc4 = await getImage({
+  src: SliderImagePc4,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+
+const ImageSp5 = await getImage({
+  src: SliderImageSp5,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc5 = await getImage({
+  src: SliderImagePc5,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+
+const ImageSp6 = await getImage({
+  src: SliderImageSp6,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc6 = await getImage({
+  src: SliderImagePc6,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+
+const ImageSp7 = await getImage({
+  src: SliderImageSp7,
+  format: "webp",
+  quality: 85,
+  widths: [360],
+});
+
+const ImagePc7 = await getImage({
+  src: SliderImagePc7,
+  format: "webp",
+  quality: 85,
+  widths: [1024, 1280],
+});
+---
+
+<!-- メインスライダー -->
+<section class="top-main-slider">
+  <img
+    class="top-main-slider__wave"
+    src={SliderWave.src}
+    alt="スライダー波紋"
+  />
+  <img
+    class="top-main-slider__smoke top-main-slider__smoke--1"
+    src={SliderSmoke1.src}
+    alt="スライダー煙"
+  />
+  <img
+    class="top-main-slider__smoke top-main-slider__smoke--2"
+    src={SliderSmoke2.src}
+    alt="スライダー煙"
+  />
+  <img
+    class="top-main-slider__smoke top-main-slider__smoke--3"
+    src={SliderSmoke3.src}
+    alt="スライダー煙"
+  />
+  <div class="top-main-slider__slider">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <!-- スライド1 -->
+        <div class="swiper-slide" data-show-smoke="true">
+          <picture class="top-main-slider__picture">
+            <source
+              media="(min-width: 1024px)"
+              srcset={ImagePc1.srcSet.attribute}
+            />
+            <source
+              media="(min-width: 744px)"
+              srcset={ImagePc1.srcSet.attribute}
+            />
+            <img
+              src={ImageSp1.src}
+              alt="スライダー画像1"
+              class="top-main-slider__img"
+            />
+          </picture>
+        </div>
+        <!-- スライド2 -->
+        <div class="swiper-slide" data-show-smoke="true">
+          <picture class="top-main-slider__picture">
+            <source
+              media="(min-width: 1024px)"
+              srcset={ImagePc2.srcSet.attribute}
+            />
+            <source
+              media="(min-width: 744px)"
+              srcset={ImagePc2.srcSet.attribute}
+            />
+            <img
+              src={ImageSp2.src}
+              alt="スライダー画像2"
+              class="top-main-slider__img"
+            />
+          </picture>
+        </div>
+        <!-- スライド3 -->
+        <div class="swiper-slide" data-show-smoke="true">
+          <picture class="top-main-slider__picture">
+            <source
+              media="(min-width: 1024px)"
+              srcset={ImagePc3.srcSet.attribute}
+            />
+            <source
+              media="(min-width: 744px)"
+              srcset={ImagePc3.srcSet.attribute}
+            />
+            <img
+              src={ImageSp3.src}
+              alt="スライダー画像3"
+              class="top-main-slider__img"
+            />
+          </picture>
+        </div>
+        <!-- スライド4 -->
+        <div class="swiper-slide" data-show-smoke="false">
+          <picture class="top-main-slider__picture">
+            <source
+              media="(min-width: 1024px)"
+              srcset={ImagePc4.srcSet.attribute}
+            />
+            <source
+              media="(min-width: 744px)"
+              srcset={ImagePc4.srcSet.attribute}
+            />
+            <img
+              src={ImageSp4.src}
+              alt="スライダー画像4"
+              class="top-main-slider__img"
+            />
+          </picture>
+        </div>
+        <!-- スライド5 -->
+        <div class="swiper-slide" data-show-smoke="false">
+          <picture class="top-main-slider__picture">
+            <source
+              media="(min-width: 1024px)"
+              srcset={ImagePc5.srcSet.attribute}
+            />
+            <source
+              media="(min-width: 744px)"
+              srcset={ImagePc5.srcSet.attribute}
+            />
+            <img
+              src={ImageSp5.src}
+              alt="スライダー画像5"
+              class="top-main-slider__img"
+            />
+          </picture>
+        </div>
+        <!-- スライド6 -->
+        <div class="swiper-slide" data-show-smoke="false">
+          <picture class="top-main-slider__picture">
+            <source
+              media="(min-width: 1024px)"
+              srcset={ImagePc6.srcSet.attribute}
+            />
+            <source
+              media="(min-width: 744px)"
+              srcset={ImagePc6.srcSet.attribute}
+            />
+            <img
+              src={ImageSp6.src}
+              alt="スライダー画像6"
+              class="top-main-slider__img"
+            />
+          </picture>
+        </div>
+        <!-- スライド7 -->
+        <div class="swiper-slide" data-show-smoke="false">
+          <picture class="top-main-slider__picture">
+            <source
+              media="(min-width: 1024px)"
+              srcset={ImagePc7.srcSet.attribute}
+            />
+            <source
+              media="(min-width: 744px)"
+              srcset={ImagePc7.srcSet.attribute}
+            />
+            <img
+              src={ImageSp7.src}
+              alt="スライダー画像7"
+              class="top-main-slider__img"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ページネーション -->
+  <div class="top-main-slider__pagination"></div>
+</section>
+
+<style lang="scss">
+  // 必要なmixin/functionをインポート
+  @import "../../../../styles/variables";
+  @import "../../../../styles/functions";
+  @import "../../../../styles/mixins";
+
+  // Swiper CSSのインポート
+  @import "swiper/css";
+  @import "swiper/css/pagination";
+  @import "swiper/css/effect-fade";
+
+  .top-main-slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    @include tablet-up {
+    }
+    @include desktop-up {
+    }
+
+    &__wave {
+      position: absolute;
+      display: block;
+      top: -0.7vw;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: 3;
+      @include tablet-up {
+        top: -0.6vw;
+      }
+      @include desktop-up {
+        top: -0.7vw;
+      }
+    }
+    &__smoke {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: auto;
+      z-index: 2;
+      opacity: 0;
+      transform-origin: center bottom; // スケールの起点を画像の下に設定
+
+      // 煙1: 左側
+      &--1 {
+        left: 0;
+        bottom: 0;
+        filter: blur(14px);
+      }
+
+      // 煙2: 中央
+      &--2 {
+        left: 0;
+        bottom: 0;
+        filter: blur(12px);
+      }
+
+      // 煙3: 右側
+      &--3 {
+        right: 0;
+        bottom: 0;
+        filter: blur(16px);
+      }
+    }
+
+    .top-main-slider__slider {
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .top-main-slider__slide {
+      width: 100%;
+    }
+
+    &__picture {
+      width: 100%;
+      display: block;
+    }
+
+    &__img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .top-main-slider__pagination {
+      position: absolute;
+      bottom: spx(7);
+      left: spx(61);
+      display: flex;
+      gap: spx(18);
+      z-index: 10;
+      @include tablet-up {
+        bottom: 2vw;
+        left: 16vw;
+        gap: 1.6vw;
+      }
+      @include desktop-up {
+        bottom: ppx(62);
+        left: ppx(429);
+        gap: ppx(30);
+      }
+
+      // Swiperのページネーションドットのスタイル
+      :global(.swiper-pagination-bullet) {
+        width: spx(20);
+        height: spx(20);
+        background: var(--main_color_1, #7c6351);
+        opacity: 1;
+        border-radius: 50%;
+        margin: 0 !important;
+        cursor: pointer;
+        @include tablet-up {
+          width: tpx(30);
+          height: tpx(30);
+        }
+        @include desktop-up {
+          width: ppx(30);
+          height: ppx(30);
+        }
+      }
+
+      // アクティブなドット（最初のドット）のスタイル
+      :global(.swiper-pagination-bullet-active) {
+        background: var(--green_1, #8aad61);
+        transition: background 0.3s ease;
+      }
+    }
+  }
+</style>
+
+<script>
+  import Swiper from "swiper";
+  import { Autoplay, Pagination, EffectFade } from "swiper/modules";
+  import { gsap } from "gsap";
+
+  // DOMが読み込まれた後にSwiperを初期化
+  document.addEventListener("DOMContentLoaded", () => {
+    const swiperElement = document.querySelector(
+      ".top-main-slider__slider .swiper",
+    ) as HTMLElement;
+    if (!swiperElement) {
+      console.warn("Swiper element not found");
+      return;
+    }
+
+    const swiper = new Swiper(swiperElement, {
+      modules: [Autoplay, Pagination, EffectFade],
+      loop: true,
+      slidesPerView: 1,
+      speed: 4000, // スライドが1秒で切り替わる
+      autoplay: {
+        delay: 4000, // 3秒ごとにスライドが切り替わる
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".top-main-slider__pagination",
+        clickable: true,
+      },
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
+    });
+
+    // 煙のアニメーションをGSAPで制御
+    const smokeElements = [
+      document.querySelector(".top-main-slider__smoke--1"),
+      document.querySelector(".top-main-slider__smoke--2"),
+      document.querySelector(".top-main-slider__smoke--3"),
+    ];
+
+    // 煙のアニメーションを0.5秒間隔で開始
+    // 煙1: 0秒（即実行）
+    // 煙2: 0.5秒後
+    // 煙3: 1秒後
+    const delays = [0, 0.8, 1.6]; // 各煙の開始遅延（秒）- 0.5秒間隔で実行
+    const xOffsets = [-5, 1, -5]; // 横方向の揺らぎ（vw単位）
+
+    // 各煙のアニメーションタイムラインを保存
+    const smokeTimelines: (gsap.core.Timeline | null)[] = [];
+
+    // スモークアニメーションを開始する関数
+    const startSmokeAnimation = () => {
+      smokeElements.forEach((smoke, index) => {
+        if (!smoke) return;
+
+        // 既存のアニメーションをクリア
+        if (smokeTimelines[index]) {
+          smokeTimelines[index].kill();
+        }
+
+        // 初期状態を設定
+        gsap.set(smoke, {
+          opacity: 0,
+          scale: 0.8,
+          transformOrigin: "center bottom", // スケールの起点を画像の下に設定
+          visibility: "visible",
+        });
+
+        // 各煙のアニメーションを個別に開始（delayをsetTimeoutで制御）
+        const startAnimation = () => {
+          const tl = gsap.timeline({
+            repeat: -1,
+          });
+
+          // 滑らかに連続して変化させる（6.5秒のアニメーション）
+          // opacity: 0 → 0.3 → 0、scale: 0.8 → 1.2 → 1.3 を滑らかなイージングで
+          tl.to(smoke, {
+            opacity: 0.3,
+            scale: 1.2,
+            duration: 4,
+            ease: "linear", // より滑らかなフェードイン
+          })
+            .to(smoke, {
+              opacity: 0,
+              scale: 1.4, // 大きくなりながら消える
+              duration: 2,
+              ease: "linear", // より滑らかなフェードアウト
+            })
+            // リセット（次のループの準備）
+            .set(smoke, {
+              opacity: 0,
+              scale: 0.8,
+            });
+
+          smokeTimelines[index] = tl;
+        };
+
+        // 遅延を設定してアニメーションを開始
+        if (delays[index] > 0) {
+          setTimeout(() => {
+            startAnimation();
+          }, delays[index] * 1000);
+        } else {
+          startAnimation();
+        }
+      });
+    };
+
+    // スモークアニメーションを停止する関数
+    const stopSmokeAnimation = () => {
+      smokeElements.forEach((smoke, index) => {
+        if (!smoke) return;
+
+        // アニメーションを停止
+        if (smokeTimelines[index]) {
+          smokeTimelines[index].kill();
+        }
+
+        // 非表示にする
+        gsap.set(smoke, {
+          opacity: 0,
+          visibility: "hidden",
+        });
+      });
+    };
+
+    // スライドのdata-show-smoke属性を事前に配列として保存（ループ用の複製スライドの影響を避けるため）
+    const slidesData: boolean[] = [];
+    const allSlides = document.querySelectorAll(
+      ".top-main-slider__slider .swiper-slide",
+    );
+    allSlides.forEach((slide) => {
+      const showSmoke = slide.getAttribute("data-show-smoke") === "true";
+      slidesData.push(showSmoke);
+    });
+
+    // 前のスライドのスモーク表示状態を保持
+    let previousShowSmoke: boolean | null = null;
+    // スモークが現在実行中かどうかを追跡
+    let isSmokeRunning = false;
+
+    // スライド変更時にスモークの表示/非表示を制御
+    const updateSmokeVisibility = () => {
+      // 現在のアクティブなスライドのインデックスを取得（ループ対応）
+      const activeIndex = swiper.realIndex;
+
+      // 事前に保存した配列から、ループ用の複製スライドの影響を受けずに値を取得
+      if (activeIndex >= 0 && activeIndex < slidesData.length) {
+        const showSmoke = slidesData[activeIndex];
+
+        // 初回読み込み時（previousShowSmokeがnull）
+        if (previousShowSmoke === null) {
+          if (showSmoke === true) {
+            startSmokeAnimation();
+            isSmokeRunning = true;
+          }
+        }
+        // trueからfalseに切り替わるときだけ停止
+        else if (previousShowSmoke === true && showSmoke === false) {
+          stopSmokeAnimation();
+          isSmokeRunning = false;
+        }
+        // falseからtrueに切り替わるときだけ開始
+        else if (previousShowSmoke === false && showSmoke === true) {
+          startSmokeAnimation();
+          isSmokeRunning = true;
+        }
+        // trueからtrueの場合は何もしない（継続表示）
+        // falseからfalseの場合は何もしない（継続非表示）
+
+        // 現在の状態を保存
+        previousShowSmoke = showSmoke;
+      }
+    };
+
+    // スライド変更イベントを監視
+    swiper.on("slideChange", updateSmokeVisibility);
+
+    // 初期状態でスモークの表示/非表示を設定
+    updateSmokeVisibility();
+  });
+</script>
