@@ -28,6 +28,15 @@ html {
     }
 }
 
+.only-sp {
+    display: block;
+    @include tablet-up {
+        display: none;
+    }
+    @include desktop-up {
+        display: none;
+    }
+}
 .only-pc {
     display: none;
     @include tablet-up {
