@@ -1,0 +1,301 @@
+---
+// メインSCSSファイルをインポート
+import "../../../../styles/main.scss";
+
+import { getImage } from "astro:assets";
+import Card1 from "../../../images/top/4-enjoy/card1.png";
+import Card2 from "../../../images/top/4-enjoy/card2.png";
+import Card3 from "../../../images/top/4-enjoy/card3.png";
+import Card4 from "../../../images/top/4-enjoy/card4.png";
+import Card5 from "../../../images/top/4-enjoy/card5.png";
+
+// エンジョイアイテムのデータ
+const enjoyItems = [
+  {
+    href: "#",
+    category: "家族",
+    image: Card1,
+    alt: "家族のイラスト",
+    text: "みんなで過ごす<br />心温まる湯時間",
+  },
+  {
+    href: "#",
+    category: "登山者",
+    image: Card2,
+    alt: "登山者のイラスト",
+    text: "登山のあとは極楽へ<br />疲れた体を芯からほぐす",
+  },
+  {
+    href: "#",
+    category: "キャンパー",
+    image: Card3,
+    alt: "キャンパーのイラスト",
+    text: "楽しいキャンプに<br />日帰り温泉の安心感を",
+  },
+  {
+    href: "#",
+    category: "デトックス",
+    image: Card4,
+    alt: "デトックスのイラスト",
+    text: "心と体を整える<br />デトックスタイム",
+  },
+  {
+    href: "#",
+    category: "訪日観光客",
+    image: Card5,
+    alt: "訪日観光客のイラスト",
+    text: "ようこそ日本へ<br />ようこそいずみの湯へ",
+  },
+];
+
+// 各画像を最適化
+const optimizedImages = await Promise.all(
+  enjoyItems.map((item) =>
+    getImage({
+      src: item.image,
+      format: "webp",
+      quality: 85,
+      widths: [360, 744, 1024],
+    }),
+  ),
+);
+---
+
+{
+  enjoyItems.map((item, index) => {
+    const optimizedImage = optimizedImages[index];
+    return (
+      <div class="enjoy__item">
+        <a href={item.href} class="enjoy__link">
+          <div class="enjoy__content">
+            <h3 class="enjoy__category">{item.category}</h3>
+            <div class="enjoy__illustration">
+              <picture class="enjoy__illustration-picture">
+                <source
+                  media="(min-width: 1024px)"
+                  srcset={optimizedImage.srcSet.attribute}
+                />
+                <source
+                  media="(min-width: 744px)"
+                  srcset={optimizedImage.srcSet.attribute}
+                />
+                <img
+                  src={optimizedImage.src}
+                  alt={item.alt}
+                  class="enjoy__illustration-img"
+                />
+              </picture>
+            </div>
+            <p class="enjoy__text" set:html={item.text} />
+          </div>
+          <div class="enjoy__card">
+            <div class="enjoy__arrow">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 55 55"
+                fill="none"
+              >
+                <path
+                  d="M27.46 52.46C41.2671 52.46 52.46 41.2671 52.46 27.46C52.46 13.6528 41.2671 2.45996 27.46 2.45996C13.6528 2.45996 2.45996 13.6528 2.45996 27.46C2.45996 41.2671 13.6528 52.46 27.46 52.46Z"
+                  stroke="#CFCFCF"
+                  stroke-width="4.92"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M27.4595 37.46L37.4595 27.46L27.4595 17.46"
+                  stroke="#CFCFCF"
+                  stroke-width="4.92"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M17.4595 27.46H37.4595"
+                  stroke="#CFCFCF"
+                  stroke-width="4.92"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+    );
+  })
+}
+
+<style lang="scss">
+  // 必要なmixin/functionをインポート
+  @import "../../../../styles/variables";
+  @import "../../../../styles/functions";
+  @import "../../../../styles/mixins";
+
+  .enjoy {
+    &__item {
+      position: relative;
+      width: spx(500);
+      height: spx(496);
+      @include tablet-up {
+        width: ppx(500 * 1.2);
+        height: ppx(496 * 1.2);
+      }
+      @include desktop-up {
+        width: ppx(500);
+        height: ppx(496);
+      }
+    }
+
+    &__link {
+      @include hover {
+        &:hover {
+          .enjoy__arrow {
+            svg {
+              path {
+                stroke: var(--main_color_1, #7c6351);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__content {
+      position: absolute;
+      z-index: 2;
+      top: spx(11);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: spx(460);
+      @include tablet-up {
+        top: ppx(11 * 1.2);
+        width: ppx(460 * 1.2);
+      }
+      @include desktop-up {
+        top: ppx(11);
+        width: ppx(460);
+      }
+    }
+
+    &__category {
+      font-size: spx(40);
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--main_color_1, #7c6351);
+      text-align: center;
+      letter-spacing: spx(4);
+      margin-bottom: spx(17);
+      @include tablet-up {
+        font-size: ppx(40 * 1.2);
+        letter-spacing: ppx(4 * 1.2);
+        margin-bottom: ppx(17 * 1.2);
+      }
+      @include desktop-up {
+        font-size: ppx(40);
+        letter-spacing: ppx(4);
+        margin-bottom: ppx(17);
+      }
+    }
+
+    &__illustration {
+      width: 100%;
+      height: spx(185);
+      @include tablet-up {
+        height: ppx(185 * 1.2);
+      }
+      @include desktop-up {
+        height: ppx(185);
+      }
+    }
+
+    &__illustration-picture {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    &__illustration-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    &__text {
+      font-size: spx(33);
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--main_color_1, #7c6351);
+      text-align: center;
+      letter-spacing: spx(1.65);
+      margin-top: spx(20);
+      @include tablet-up {
+        font-size: ppx(33 * 1.2);
+        letter-spacing: ppx(1.65 * 1.2);
+        margin-top: ppx(20 * 1.2);
+      }
+      @include desktop-up {
+        font-size: ppx(33);
+        letter-spacing: ppx(1.65);
+        margin-top: ppx(20);
+      }
+    }
+
+    &__card {
+      position: absolute;
+      z-index: 1;
+      top: spx(176);
+      left: 0;
+      right: 0;
+      bottom: spx(31);
+      background: white;
+      border-radius: spx(40);
+      height: spx(320);
+      @include tablet-up {
+        top: ppx(176 * 1.2);
+        bottom: ppx(31 * 1.2);
+        border-radius: ppx(40 * 1.2);
+        height: ppx(320 * 1.2);
+      }
+      @include desktop-up {
+        top: ppx(176);
+        bottom: ppx(31);
+        border-radius: ppx(40);
+        height: ppx(320);
+      }
+    }
+
+    &__arrow {
+      position: absolute;
+      bottom: spx(30);
+      right: spx(30);
+      width: spx(50);
+      height: spx(50);
+      @include tablet-up {
+        bottom: ppx(30 * 1.2);
+        right: ppx(30 * 1.2);
+        width: ppx(50 * 1.2);
+        height: ppx(50 * 1.2);
+      }
+      @include desktop-up {
+        bottom: ppx(30);
+        right: ppx(30);
+        width: ppx(50);
+        height: ppx(50);
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        path {
+          stroke: #cfcfcf;
+          transition: stroke 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+</style>

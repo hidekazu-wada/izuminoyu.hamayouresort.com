@@ -2,6 +2,7 @@
 // メインSCSSファイルをインポート
 import "../styles/main.scss";
 
+import { getImage } from "astro:assets";
 import Head from "../assets/components/common/head.astro";
 import TopHeader from "../assets/components/common/topHeader/topHeader.astro";
 import SiteBg from "../assets/components/common/siteBg.astro";
@@ -9,6 +10,7 @@ import Footer from "../assets/components/common/footer/footer.astro";
 import Hero from "../assets/components/pages/top/1-hero.astro";
 import Lead from "../assets/components/pages/top/2-lead.astro";
 import MainSlider from "../assets/components/pages/top/3-mainSlider.astro";
+import EnjoyItem from "../assets/components/pages/top/4-1-enjoyItem.astro";
 ---
 
 <html lang="ja">
@@ -20,6 +22,16 @@ import MainSlider from "../assets/components/pages/top/3-mainSlider.astro";
       <Hero />
       <Lead />
       <MainSlider />
+      <section class="enjoy">
+        <h2 class="enjoy__title">
+          いずみの湯を<br class="only-sp" />「とことん楽しむ」
+        </h2>
+        <EnjoyItem />
+      </section>
+      <!-- <section>
+        <div class="">施設内の混雑状況</div>
+        <div class="">2024.11.20(水)　11:00時点</div>
+      </section> -->
     </main>
     <Footer />
   </body>
@@ -39,5 +51,8 @@ import MainSlider from "../assets/components/pages/top/3-mainSlider.astro";
     @include desktop-up {
       padding-top: ppx(182);
     }
+  }
+
+  .enjoy {
   }
 </style>
