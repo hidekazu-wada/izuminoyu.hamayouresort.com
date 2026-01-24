@@ -1,0 +1,64 @@
+---
+// メインSCSSファイルをインポート
+import "../../../../styles/main.scss";
+
+import EnjoyItem from "./4-1-enjoyItem.astro";
+import Wave from "../../../images/top/4-enjoy/wave.svg";
+---
+
+<section class="enjoy">
+  <h2 class="enjoy__title">
+    いずみの湯を<br class="only-sp" />「とことん楽しむ」
+  </h2>
+  <EnjoyItem />
+  <img class="enjoy__wave" src={Wave.src} alt="Wave" />
+</section>
+
+<style lang="scss">
+  // 必要なmixin/functionをインポート
+  @import "../../../../styles/variables";
+  @import "../../../../styles/functions";
+  @import "../../../../styles/mixins";
+
+  .enjoy {
+    position: relative;
+    padding-top: spx(100);
+    padding-bottom: spx(118);
+    overflow: hidden;
+    @include tablet-up {
+      padding-top: ppx(240 * 1.2);
+      padding-bottom: ppx(410 * 1.2);
+    }
+    @include desktop-up {
+      padding-top: ppx(240);
+      padding-bottom: ppx(410);
+    }
+    &__title {
+      color: var(--main_color_1, #7c6351);
+      text-align: center;
+      font-family: "Zen Maru Gothic";
+      font-size: spx(54);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: spx(2.7);
+      @include tablet-up {
+        font-size: ppx(65 * 1.2);
+        line-height: 1.8;
+        letter-spacing: ppx(3.25 * 1.2);
+      }
+      @include desktop-up {
+        font-size: ppx(65);
+        letter-spacing: ppx(3.25);
+      }
+    }
+    &__wave {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+</style>

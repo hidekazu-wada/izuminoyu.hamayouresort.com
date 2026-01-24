@@ -10,7 +10,12 @@ import Footer from "../assets/components/common/footer/footer.astro";
 import Hero from "../assets/components/pages/top/1-hero.astro";
 import Lead from "../assets/components/pages/top/2-lead.astro";
 import MainSlider from "../assets/components/pages/top/3-mainSlider.astro";
-import EnjoyItem from "../assets/components/pages/top/4-1-enjoyItem.astro";
+import Enjoy from "../assets/components/pages/top/4-enjoy.astro";
+
+import HeaderIllustration from "../assets/images/top/5-crowd.astro/header-illustration.svg";
+import crowdArrow from "../assets/images/top/5-crowd.astro/crowd-arrow.svg";
+import Many from "../assets/images/top/5-crowd.astro/many.svg";
+import Few from "../assets/images/top/5-crowd.astro/few.svg";
 ---
 
 <html lang="ja">
@@ -22,16 +27,125 @@ import EnjoyItem from "../assets/components/pages/top/4-1-enjoyItem.astro";
       <Hero />
       <Lead />
       <MainSlider />
-      <section class="enjoy">
-        <h2 class="enjoy__title">
-          いずみの湯を<br class="only-sp" />「とことん楽しむ」
-        </h2>
-        <EnjoyItem />
+      <Enjoy />
+      <section class="crowd">
+        <header class="crowd__header">
+          <div class="crowd__header-text">
+            <h3 class="crowd__title">施設内の混雑状況</h3>
+            <!-- 後でシステム化 -->
+            <time class="crowd__datetime" datetime="2024-11-20T11:00">2024.11.20(水)　11:00時点</time>
+          </div>
+          <figure class="crowd__illustration">
+            <img src={HeaderIllustration.src} alt="混雑状況のイラスト" />
+          </figure>
+        </header>
+        <div class="crowd__body">
+          <div class="crowd__content">
+            <!-- アイコンコンテナ -->
+            <ul class="crowd__indicators">
+              <!-- カレントとアイコンのまとまり（1つ） -->
+              <li class="crowd__indicator-item first crowd__indicator-item--active">
+                <!-- カレントマーク -->
+                <span class="crowd__marker">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 48 39"
+                    
+                  >
+                    <path
+                      d="M45.7096 0H2.00329C0.424377 0 -0.531922 1.74374 0.316832 3.07512L22.17 37.3546C22.9561 38.5878 24.7568 38.5878 25.5429 37.3546L47.3961 3.07511C48.2448 1.74374 47.2885 0 45.7096 0Z"
+                      fill="#D6B156"></path>
+                  </svg>
+                </span>
+                <!-- 混雑状況アイコン -->
+                <span class="crowd__icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 158 252"
+                    
+                  >
+                    <path
+                      d="M78.6582 131.391C-16.6232 131.391 1.34829 251.209 1.34829 251.209H155.642C155.642 251.209 173.916 131.414 78.635 131.414L78.6582 131.391Z"
+                      ></path>
+                    <path
+                      d="M92.684 120.418C125.471 112.583 145.699 79.652 137.863 46.8649C130.028 14.0779 97.0974 -6.14965 64.3103 1.68553C31.5233 9.5207 11.2957 42.4515 19.1309 75.2386C26.9661 108.026 59.8969 128.253 92.684 120.418Z"
+                      ></path>
+                  </svg>
+                </span>
+              </li>
+              <li class="crowd__indicator-item second">
+                <span class="crowd__marker">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 48 39"
+                    
+                  >
+                    <path
+                      d="M45.7096 0H2.00329C0.424377 0 -0.531922 1.74374 0.316832 3.07512L22.17 37.3546C22.9561 38.5878 24.7568 38.5878 25.5429 37.3546L47.3961 3.07511C48.2448 1.74374 47.2885 0 45.7096 0Z"
+                      fill="#D6B156"></path>
+                  </svg>
+                </span>
+                <span class="crowd__icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 330 252"
+                    
+                  >
+                    <path
+                      d="M78.6582 131.391C-16.6232 131.391 1.34829 251.208 1.34829 251.208H155.642C155.642 251.208 173.916 131.414 78.635 131.414L78.6582 131.391Z"
+                      ></path>
+                    <path
+                      d="M92.6839 120.418C125.471 112.583 145.699 79.652 137.863 46.8649C130.028 14.0779 97.0973 -6.14965 64.3102 1.68553C31.5232 9.5207 11.2956 42.4515 19.1308 75.2386C26.966 108.026 59.8968 128.253 92.6839 120.418Z"
+                      ></path>
+                    <path
+                      d="M250.924 131.391C155.642 131.391 173.614 251.185 173.614 251.185H327.908C327.908 251.185 346.182 131.391 250.9 131.391H250.924Z"
+                      ></path>
+                    <path
+                      d="M264.957 120.419C297.744 112.584 317.972 79.6532 310.137 46.8661C302.302 14.079 269.371 -6.14852 236.584 1.68666C203.797 9.52184 183.569 42.4527 191.404 75.2398C199.239 108.027 232.17 128.254 264.957 120.419Z"
+                      ></path>
+                  </svg>
+                </span>
+              </li>
+              <li class="crowd__indicator-item third">
+                <span class="crowd__marker">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 48 39"
+                    
+                  >
+                    <path
+                      d="M45.7096 0H2.00329C0.424377 0 -0.531922 1.74374 0.316832 3.07512L22.17 37.3546C22.9561 38.5878 24.7568 38.5878 25.5429 37.3546L47.3961 3.07511C48.2448 1.74374 47.2885 0 45.7096 0Z"
+                      fill="#D6B156"></path>
+                  </svg>
+                </span>
+                <span class="crowd__icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 292"
+                    
+                  >
+                    <path
+                      d="M253.448 102.522C281.757 102.522 304.709 79.5696 304.709 51.2608C304.709 22.952 281.757 0 253.448 0C225.139 0 202.187 22.952 202.187 51.2608C202.187 79.5696 225.139 102.522 253.448 102.522ZM65.9219 102.522C94.2307 102.522 117.183 79.5696 117.183 51.2608C117.183 22.952 94.2307 0 65.9219 0C37.6131 0 14.6611 22.952 14.6611 51.2608C14.6611 79.5696 37.6131 102.522 65.9219 102.522ZM253.331 110.322C243.673 110.322 235.423 111.788 228.346 114.369C229.753 119.921 230.516 125.747 230.516 131.749C230.516 152.609 221.444 171.378 207.055 184.339C212.627 188.015 217.671 192.433 222.109 197.575C225.589 201.622 228.658 206.079 231.376 210.928H318.257C318.257 210.928 333.35 110.322 253.331 110.322ZM112.452 184.437C98.0039 171.456 88.8935 152.648 88.8935 131.749C88.8935 125.767 89.6559 119.941 91.0636 114.389C83.9864 111.808 75.7361 110.322 66.0588 110.322C-13.9605 110.322 1.13232 210.947 1.13232 210.947H88.2092C90.9267 206.099 94.0156 201.641 97.4956 197.595C101.894 192.472 106.899 188.093 112.432 184.437H112.452ZM159.822 190.83C79.8026 190.83 94.8954 291.436 94.8954 291.436H224.475C224.475 291.436 239.822 190.83 159.802 190.83H159.822ZM159.705 183.01C188.013 183.01 210.965 160.058 210.965 131.749C210.965 103.44 188.013 80.4885 159.705 80.4885C131.396 80.4885 108.444 103.44 108.444 131.749C108.444 160.058 131.396 183.01 159.705 183.01Z"
+                      ></path>
+                  </svg>
+                </span>
+              </li>
+            </ul>
+            <!-- 空から混むの矢印 -->
+            <div class="crowd__legend">
+              <span class="crowd__legend-label">
+                <img src={Many.src} alt="混む" />
+              </span>
+              <span class="crowd__legend-arrow">
+                <img src={crowdArrow.src} alt="" />
+              </span>
+              <span class="crowd__legend-label">
+                <img src={Few.src} alt="空" />
+              </span>
+            </div>
+          </div>
+        </div>
       </section>
-      <!-- <section>
-        <div class="">施設内の混雑状況</div>
-        <div class="">2024.11.20(水)　11:00時点</div>
-      </section> -->
     </main>
     <Footer />
   </body>
@@ -53,6 +167,262 @@ import EnjoyItem from "../assets/components/pages/top/4-1-enjoyItem.astro";
     }
   }
 
-  .enjoy {
+  // 混雑状況セクション
+  .crowd {
+    background: rgba(124, 99, 81, 0.70);
+    @include tablet-up {
+    }
+    @include desktop-up {
+    }
+
+    &__header {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__header-text {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__title {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__datetime {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__illustration {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+
+      img {
+        @include tablet-up {
+        }
+        @include desktop-up {
+        }
+      }
+    }
+
+    &__body {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__content {
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__indicators {
+      display: flex;
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+    }
+
+    &__indicator-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+
+      &--active {
+        @include tablet-up {
+        }
+        @include desktop-up {
+        }
+      }
+      &.first {
+        gap: ppx(34);
+        @include tablet-up {
+          gap: tpx(34 *1.2);
+        }
+        @include desktop-up {
+        }
+        .crowd__icon {
+          width: ppx(157);
+          height: ppx(251);
+          @include tablet-up {
+            width: tpx(157 *1.2);
+            height: ppx(251 *1.2);
+          }
+          @include desktop-up {
+            width: spx(63);
+            height: spx(106);
+          }
+        }
+      }
+      &.second {
+        gap: ppx(34);
+        margin: 0 ppx(271) 0 ppx(353);
+        @include tablet-up {
+          gap: tpx(34 *1.2);
+          margin: 0 tpx(271 *1.2) 0 tpx(353 *1.2);
+        }
+        @include desktop-up {
+          margin: 0 spx(69) 0 spx(95);
+        }
+        .crowd__icon {
+          width: ppx(329);
+          height: ppx(251);
+          @include tablet-up {
+            width: tpx(329 *1.2);
+            height: ppx(251 *1.2);
+          }
+          @include desktop-up {
+            width: spx(133);
+            height: spx(106);
+          }
+        }
+      }
+      &.third {
+        gap: ppx(20);
+        @include tablet-up {
+          gap: tpx(20 *1.2);
+        }
+        @include desktop-up {
+        }
+        .crowd__icon {
+          width: ppx(319);
+          height: ppx(291);
+          @include tablet-up {
+            width: tpx(319 *1.2);
+            height: ppx(291 *1.2);
+          }
+          @include desktop-up {
+            width: spx(129);
+            height: spx(118);
+          }
+        }
+      }
+    }
+
+    &__marker {
+      display: block;
+      width: ppx(51);
+      height: ppx(40);
+      @include tablet-up {
+        width: tpx(51 *1.2);
+        height: tpx(4 *1.2);
+      }
+      @include desktop-up {
+        width: spx(20);
+        height: spx(16);
+      }
+
+      svg {
+        display: block;
+        width: ppx(51);
+        height: auto;
+        @include tablet-up {
+          width: tpx(51 *1.2);
+        }
+        @include desktop-up {
+          width: spx(20);
+        }
+      }
+    }
+
+    &__icon {
+      display: block;
+      width: max-content;
+      @include tablet-up {
+      }
+      @include desktop-up {
+      }
+
+      svg {
+        display: block;
+        @include tablet-up {
+        }
+        @include desktop-up {
+        }
+        path {
+          fill: var(--main_color_1, #7C6351);
+        }
+      }
+    }
+
+    &__legend {
+      display: flex;
+      align-items: center;
+      gap: ppx(20);
+      @include tablet-up {
+        gap: tpx(20 *1.2);
+      }
+      @include desktop-up {
+        gap: spx(20);
+      }
+    }
+
+    &__legend-label {
+      display: block;
+      width: ppx(119);
+      height: ppx(119);
+      @include tablet-up {
+        width: tpx(119 *1.2);
+        height: tpx(119 *1.2);
+      }
+      @include desktop-up {
+        width: spx(60);
+        height: spx(60);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        @include tablet-up {
+          object-fit: contain;
+        }
+        @include desktop-up {
+          object-fit: contain;
+        }
+      }
+    }
+
+    &__legend-arrow {
+      display: block;
+      width: ppx(984);
+      height: auto;
+      @include tablet-up {
+        width: tpx(984 *1.2);
+      }
+      @include desktop-up {
+        width: spx(290);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        @include tablet-up {
+        }
+        @include desktop-up {
+        }
+      }
+    }
   }
 </style>
