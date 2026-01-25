@@ -218,16 +218,36 @@ import Few from "../assets/images/top/5-crowd.astro/few.svg";
     }
 
     &__body {
+      background-image: url('../assets/images/top/5-crowd.astro/card-body-bg.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: spx(640);
+        height: spx(253);
+      margin-inline: auto;
       @include tablet-up {
+        width: ppx(1800 *1.2);
+        height: ppx(622 *1.2);
       }
       @include desktop-up {
+        width: ppx(1800);
+        height: ppx(622);
       }
     }
 
     &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: spx(10);
+      padding-top: spx(25);
       @include tablet-up {
+        gap: ppx(30 *1.2);
+        padding-top: ppx(60 *1.2);
       }
       @include desktop-up {
+        gap: ppx(30);
+        padding-top: ppx(60);
       }
     }
 
@@ -255,65 +275,59 @@ import Few from "../assets/images/top/5-crowd.astro/few.svg";
         }
       }
       &.first {
-        gap: ppx(34);
+        gap: spx(17);
         @include tablet-up {
-          gap: tpx(34 *1.2);
+          gap: ppx(34 *1.2);
         }
         @include desktop-up {
+          gap: ppx(34);
         }
         .crowd__icon {
-          width: ppx(157);
-          height: ppx(251);
+          width: spx(63);
           @include tablet-up {
-            width: tpx(157 *1.2);
-            height: ppx(251 *1.2);
+            width: ppx(157 *1.2);
           }
           @include desktop-up {
-            width: spx(63);
-            height: spx(106);
+            width: ppx(157);
           }
         }
       }
       &.second {
-        gap: ppx(34);
-        margin: 0 ppx(271) 0 ppx(353);
+        gap: spx(34);
+        margin: 0 spx(69) 0 spx(95);
         @include tablet-up {
-          gap: tpx(34 *1.2);
-          margin: 0 tpx(271 *1.2) 0 tpx(353 *1.2);
+          gap: ppx(34 *1.2);
+          margin: 0 ppx(271 *1.2) 0 ppx(353 *1.2);
         }
         @include desktop-up {
-          margin: 0 spx(69) 0 spx(95);
+          gap: ppx(34);
+          margin: 0 ppx(271) 0 ppx(353);
         }
         .crowd__icon {
-          width: ppx(329);
-          height: ppx(251);
+          width: spx(133);
           @include tablet-up {
-            width: tpx(329 *1.2);
-            height: ppx(251 *1.2);
+            width: ppx(329 *1.2);
           }
           @include desktop-up {
-            width: spx(133);
-            height: spx(106);
+            width: ppx(329);
           }
         }
       }
       &.third {
         gap: ppx(20);
         @include tablet-up {
-          gap: tpx(20 *1.2);
+          gap: ppx(20 *1.2);
         }
         @include desktop-up {
+          gap: ppx(20);
         }
         .crowd__icon {
-          width: ppx(319);
-          height: ppx(291);
+          width: spx(129);
           @include tablet-up {
-            width: tpx(319 *1.2);
-            height: ppx(291 *1.2);
+            width: ppx(319 *1.2);
           }
           @include desktop-up {
-            width: spx(129);
-            height: spx(118);
+            width: ppx(319);
           }
         }
       }
@@ -321,32 +335,31 @@ import Few from "../assets/images/top/5-crowd.astro/few.svg";
 
     &__marker {
       display: block;
-      width: ppx(51);
-      height: ppx(40);
+      width: spx(20);
+      height: auto;
       @include tablet-up {
-        width: tpx(51 *1.2);
-        height: tpx(4 *1.2);
+        width: ppx(51 *1.2);
       }
       @include desktop-up {
-        width: spx(20);
-        height: spx(16);
+        width: ppx(51);
       }
 
       svg {
         display: block;
-        width: ppx(51);
+        width: spx(20);
         height: auto;
         @include tablet-up {
-          width: tpx(51 *1.2);
+          width: ppx(51 *1.2);
         }
         @include desktop-up {
-          width: spx(20);
+          width: ppx(51);
         }
       }
     }
 
     &__icon {
       display: block;
+      height: auto;
       width: max-content;
       @include tablet-up {
       }
@@ -368,26 +381,24 @@ import Few from "../assets/images/top/5-crowd.astro/few.svg";
     &__legend {
       display: flex;
       align-items: center;
-      gap: ppx(20);
+      gap: spx(20);
       @include tablet-up {
-        gap: tpx(20 *1.2);
+        gap: ppx(20 *1.2);
       }
       @include desktop-up {
-        gap: spx(20);
+        gap: ppx(20);
       }
     }
 
     &__legend-label {
       display: block;
-      width: ppx(119);
-      height: ppx(119);
+      width: spx(60);
+      height: auto;
       @include tablet-up {
-        width: tpx(119 *1.2);
-        height: tpx(119 *1.2);
+        width: ppx(119 *1.2);
       }
       @include desktop-up {
-        width: spx(60);
-        height: spx(60);
+        width: ppx(119);
       }
 
       img {
@@ -405,13 +416,13 @@ import Few from "../assets/images/top/5-crowd.astro/few.svg";
 
     &__legend-arrow {
       display: block;
-      width: ppx(984);
+      width: spx(290);
       height: auto;
       @include tablet-up {
-        width: tpx(984 *1.2);
+        width: ppx(984 *1.2);
       }
       @include desktop-up {
-        width: spx(290);
+        width: ppx(984);
       }
 
       img {
