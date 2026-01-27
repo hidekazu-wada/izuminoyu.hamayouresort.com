@@ -1,21 +1,22 @@
 {
-  "cSpell.words": [
-    "contenteditable",
-    "destyle",
-    "gsap",
-    "hamayouresort",
-    "Izumi",
-    "kaku",
-    "kuwarubi",
-    "Maru",
-    "Navi",
-    "notranslate",
-    "rubi",
-    "stylable",
-    "styleable"
-  ],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": null,
   "[astro]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": null
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": null
+  },
+  "[scss]": {
+    "editor.defaultFormatter": null
+  },
+  "[css]": {
+    "editor.defaultFormatter": null
+  },
+  "[json]": {
+    "editor.defaultFormatter": null
   }
 }
