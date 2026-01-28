@@ -1,158 +1,136 @@
 ---
 // メインSCSSファイルをインポート
-import "../../../../styles/main.scss";
+import '../../../../styles/main.scss';
 
-import { getImage } from "astro:assets";
+import { getImage } from 'astro:assets';
 
-import HeaderIllustration from "../../../images/top/5-crowd/header-illustration.svg";
-import crowdArrow from "../../../images/top/5-crowd/crowd-arrow.svg";
-import Many from "../../../images/top/5-crowd/many.svg";
-import Few from "../../../images/top/5-crowd/few.svg";
-import CardBodyBgSp from "../../../images/top/5-crowd/card-body-bg-sp.svg";
-import CardBodyBg from "../../../images/top/5-crowd/card-body-bg.svg";
+import HeaderIllustration from '../../../images/top/5-crowd/header-illustration.svg';
+import crowdArrow from '../../../images/top/5-crowd/crowd-arrow.svg';
+import Many from '../../../images/top/5-crowd/many.svg';
+import Few from '../../../images/top/5-crowd/few.svg';
+import CardBodyBgSp from '../../../images/top/5-crowd/card-body-bg-sp.svg';
+import CardBodyBg from '../../../images/top/5-crowd/card-body-bg.svg';
 
 const cardBodyBgSpImage = await getImage({ src: CardBodyBgSp });
 const cardBodyBgImage = await getImage({ src: CardBodyBg });
+
+//カレント処理を追加して、スタイルで反映させること（未追加）
 ---
 
-
-      <section class="crowd">
-        <header class="crowd__header">
-          <div class="crowd__header-text">
-            <h3 class="crowd__title">施設内の混雑状況</h3>
-            <!-- 後でシステム化 -->
-            <time class="crowd__datetime" datetime="2024-11-20T11:00">2024.11.20(水)　11:00時点</time>
-          </div>
-          <figure class="crowd__illustration">
-            <img src={HeaderIllustration.src} alt="混雑状況のイラスト" />
-          </figure>
-        </header>
-        <div 
-          class="crowd__body"
-          style={`--bg-image-sp: url('${cardBodyBgSpImage.src}'); --bg-image: url('${cardBodyBgImage.src}');`}
-        >
-          <div class="crowd__content">
-            <!-- アイコンコンテナ -->
-            <ul class="crowd__indicators">
-              <!-- カレントとアイコンのまとまり（1つ） -->
-              <li class="crowd__indicator-item first crowd__indicator-item--active">
-                <!-- カレントマーク -->
-                <span class="crowd__marker">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 48 39"
-                    
-                  >
-                    <path
-                      d="M45.7096 0H2.00329C0.424377 0 -0.531922 1.74374 0.316832 3.07512L22.17 37.3546C22.9561 38.5878 24.7568 38.5878 25.5429 37.3546L47.3961 3.07511C48.2448 1.74374 47.2885 0 45.7096 0Z"
-                      fill="#D6B156"></path>
-                  </svg>
-                </span>
-                <!-- 混雑状況アイコン -->
-                <span class="crowd__icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 158 252"
-                    
-                  >
-                    <path
-                      d="M78.6582 131.391C-16.6232 131.391 1.34829 251.209 1.34829 251.209H155.642C155.642 251.209 173.916 131.414 78.635 131.414L78.6582 131.391Z"
-                      ></path>
-                    <path
-                      d="M92.684 120.418C125.471 112.583 145.699 79.652 137.863 46.8649C130.028 14.0779 97.0974 -6.14965 64.3103 1.68553C31.5233 9.5207 11.2957 42.4515 19.1309 75.2386C26.9661 108.026 59.8969 128.253 92.684 120.418Z"
-                      ></path>
-                  </svg>
-                </span>
-              </li>
-              <li class="crowd__indicator-item second">
-                <span class="crowd__marker">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 48 39"
-                    
-                  >
-                    <path
-                      d="M45.7096 0H2.00329C0.424377 0 -0.531922 1.74374 0.316832 3.07512L22.17 37.3546C22.9561 38.5878 24.7568 38.5878 25.5429 37.3546L47.3961 3.07511C48.2448 1.74374 47.2885 0 45.7096 0Z"
-                      fill="#D6B156"></path>
-                  </svg>
-                </span>
-                <span class="crowd__icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 330 252"
-                    
-                  >
-                    <path
-                      d="M78.6582 131.391C-16.6232 131.391 1.34829 251.208 1.34829 251.208H155.642C155.642 251.208 173.916 131.414 78.635 131.414L78.6582 131.391Z"
-                      ></path>
-                    <path
-                      d="M92.6839 120.418C125.471 112.583 145.699 79.652 137.863 46.8649C130.028 14.0779 97.0973 -6.14965 64.3102 1.68553C31.5232 9.5207 11.2956 42.4515 19.1308 75.2386C26.966 108.026 59.8968 128.253 92.6839 120.418Z"
-                      ></path>
-                    <path
-                      d="M250.924 131.391C155.642 131.391 173.614 251.185 173.614 251.185H327.908C327.908 251.185 346.182 131.391 250.9 131.391H250.924Z"
-                      ></path>
-                    <path
-                      d="M264.957 120.419C297.744 112.584 317.972 79.6532 310.137 46.8661C302.302 14.079 269.371 -6.14852 236.584 1.68666C203.797 9.52184 183.569 42.4527 191.404 75.2398C199.239 108.027 232.17 128.254 264.957 120.419Z"
-                      ></path>
-                  </svg>
-                </span>
-              </li>
-              <li class="crowd__indicator-item third">
-                <span class="crowd__marker">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 48 39"
-                    
-                  >
-                    <path
-                      d="M45.7096 0H2.00329C0.424377 0 -0.531922 1.74374 0.316832 3.07512L22.17 37.3546C22.9561 38.5878 24.7568 38.5878 25.5429 37.3546L47.3961 3.07511C48.2448 1.74374 47.2885 0 45.7096 0Z"
-                      fill="#D6B156"></path>
-                  </svg>
-                </span>
-                <span class="crowd__icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 320 292"
-                    
-                  >
-                    <path
-                      d="M253.448 102.522C281.757 102.522 304.709 79.5696 304.709 51.2608C304.709 22.952 281.757 0 253.448 0C225.139 0 202.187 22.952 202.187 51.2608C202.187 79.5696 225.139 102.522 253.448 102.522ZM65.9219 102.522C94.2307 102.522 117.183 79.5696 117.183 51.2608C117.183 22.952 94.2307 0 65.9219 0C37.6131 0 14.6611 22.952 14.6611 51.2608C14.6611 79.5696 37.6131 102.522 65.9219 102.522ZM253.331 110.322C243.673 110.322 235.423 111.788 228.346 114.369C229.753 119.921 230.516 125.747 230.516 131.749C230.516 152.609 221.444 171.378 207.055 184.339C212.627 188.015 217.671 192.433 222.109 197.575C225.589 201.622 228.658 206.079 231.376 210.928H318.257C318.257 210.928 333.35 110.322 253.331 110.322ZM112.452 184.437C98.0039 171.456 88.8935 152.648 88.8935 131.749C88.8935 125.767 89.6559 119.941 91.0636 114.389C83.9864 111.808 75.7361 110.322 66.0588 110.322C-13.9605 110.322 1.13232 210.947 1.13232 210.947H88.2092C90.9267 206.099 94.0156 201.641 97.4956 197.595C101.894 192.472 106.899 188.093 112.432 184.437H112.452ZM159.822 190.83C79.8026 190.83 94.8954 291.436 94.8954 291.436H224.475C224.475 291.436 239.822 190.83 159.802 190.83H159.822ZM159.705 183.01C188.013 183.01 210.965 160.058 210.965 131.749C210.965 103.44 188.013 80.4885 159.705 80.4885C131.396 80.4885 108.444 103.44 108.444 131.749C108.444 160.058 131.396 183.01 159.705 183.01Z"
-                      ></path>
-                  </svg>
-                </span>
-              </li>
-            </ul>
-            <!-- 空から混むの矢印 -->
-            <div class="crowd__legend">
-              <span class="crowd__legend-label">
-                <img src={Many.src} alt="混む" />
-              </span>
-              <span class="crowd__legend-arrow">
-                <img src={crowdArrow.src} alt="" />
-              </span>
-              <span class="crowd__legend-label">
-                <img src={Few.src} alt="空" />
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-    
+<section class="crowd">
+  <header class="crowd__header">
+    <div class="crowd__header-text">
+      <h3 class="crowd__title">施設内の混雑状況</h3>
+      <!-- 後でシステム化 -->
+      <time class="crowd__datetime" datetime="2024-11-20T11:00"
+        >2024.11.20(水)　11:00時点</time
+      >
+    </div>
+    <figure class="crowd__illustration">
+      <img src={HeaderIllustration.src} alt="混雑状況のイラスト" />
+    </figure>
+  </header>
+  <div
+    class="crowd__body"
+    style={`--bg-image-sp: url('${cardBodyBgSpImage.src}'); --bg-image: url('${cardBodyBgImage.src}');`}
+  >
+    <div class="crowd__content">
+      <!-- アイコンコンテナ -->
+      <ul class="crowd__indicators">
+        <!-- カレントとアイコンのまとまり（1つ） -->
+        <li class="crowd__indicator-item first crowd__indicator-item--active">
+          <!-- カレントマーク -->
+          <span class="crowd__marker">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 39">
+              <path
+                d="M45.7096 0H2.00329C0.424377 0 -0.531922 1.74374 0.316832 3.07512L22.17 37.3546C22.9561 38.5878 24.7568 38.5878 25.5429 37.3546L47.3961 3.07511C48.2448 1.74374 47.2885 0 45.7096 0Z"
+                fill="#D6B156"></path>
+            </svg>
+          </span>
+          <!-- 混雑状況アイコン -->
+          <span class="crowd__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 252">
+              <path
+                d="M78.6582 131.391C-16.6232 131.391 1.34829 251.209 1.34829 251.209H155.642C155.642 251.209 173.916 131.414 78.635 131.414L78.6582 131.391Z"
+              ></path>
+              <path
+                d="M92.684 120.418C125.471 112.583 145.699 79.652 137.863 46.8649C130.028 14.0779 97.0974 -6.14965 64.3103 1.68553C31.5233 9.5207 11.2957 42.4515 19.1309 75.2386C26.9661 108.026 59.8969 128.253 92.684 120.418Z"
+              ></path>
+            </svg>
+          </span>
+        </li>
+        <li class="crowd__indicator-item second">
+          <span class="crowd__marker">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 39">
+              <path
+                d="M45.7096 0H2.00329C0.424377 0 -0.531922 1.74374 0.316832 3.07512L22.17 37.3546C22.9561 38.5878 24.7568 38.5878 25.5429 37.3546L47.3961 3.07511C48.2448 1.74374 47.2885 0 45.7096 0Z"
+                fill="#D6B156"></path>
+            </svg>
+          </span>
+          <span class="crowd__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 252">
+              <path
+                d="M78.6582 131.391C-16.6232 131.391 1.34829 251.208 1.34829 251.208H155.642C155.642 251.208 173.916 131.414 78.635 131.414L78.6582 131.391Z"
+              ></path>
+              <path
+                d="M92.6839 120.418C125.471 112.583 145.699 79.652 137.863 46.8649C130.028 14.0779 97.0973 -6.14965 64.3102 1.68553C31.5232 9.5207 11.2956 42.4515 19.1308 75.2386C26.966 108.026 59.8968 128.253 92.6839 120.418Z"
+              ></path>
+              <path
+                d="M250.924 131.391C155.642 131.391 173.614 251.185 173.614 251.185H327.908C327.908 251.185 346.182 131.391 250.9 131.391H250.924Z"
+              ></path>
+              <path
+                d="M264.957 120.419C297.744 112.584 317.972 79.6532 310.137 46.8661C302.302 14.079 269.371 -6.14852 236.584 1.68666C203.797 9.52184 183.569 42.4527 191.404 75.2398C199.239 108.027 232.17 128.254 264.957 120.419Z"
+              ></path>
+            </svg>
+          </span>
+        </li>
+        <li class="crowd__indicator-item third">
+          <span class="crowd__marker">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 39">
+              <path
+                d="M45.7096 0H2.00329C0.424377 0 -0.531922 1.74374 0.316832 3.07512L22.17 37.3546C22.9561 38.5878 24.7568 38.5878 25.5429 37.3546L47.3961 3.07511C48.2448 1.74374 47.2885 0 45.7096 0Z"
+                fill="#D6B156"></path>
+            </svg>
+          </span>
+          <span class="crowd__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 292">
+              <path
+                d="M253.448 102.522C281.757 102.522 304.709 79.5696 304.709 51.2608C304.709 22.952 281.757 0 253.448 0C225.139 0 202.187 22.952 202.187 51.2608C202.187 79.5696 225.139 102.522 253.448 102.522ZM65.9219 102.522C94.2307 102.522 117.183 79.5696 117.183 51.2608C117.183 22.952 94.2307 0 65.9219 0C37.6131 0 14.6611 22.952 14.6611 51.2608C14.6611 79.5696 37.6131 102.522 65.9219 102.522ZM253.331 110.322C243.673 110.322 235.423 111.788 228.346 114.369C229.753 119.921 230.516 125.747 230.516 131.749C230.516 152.609 221.444 171.378 207.055 184.339C212.627 188.015 217.671 192.433 222.109 197.575C225.589 201.622 228.658 206.079 231.376 210.928H318.257C318.257 210.928 333.35 110.322 253.331 110.322ZM112.452 184.437C98.0039 171.456 88.8935 152.648 88.8935 131.749C88.8935 125.767 89.6559 119.941 91.0636 114.389C83.9864 111.808 75.7361 110.322 66.0588 110.322C-13.9605 110.322 1.13232 210.947 1.13232 210.947H88.2092C90.9267 206.099 94.0156 201.641 97.4956 197.595C101.894 192.472 106.899 188.093 112.432 184.437H112.452ZM159.822 190.83C79.8026 190.83 94.8954 291.436 94.8954 291.436H224.475C224.475 291.436 239.822 190.83 159.802 190.83H159.822ZM159.705 183.01C188.013 183.01 210.965 160.058 210.965 131.749C210.965 103.44 188.013 80.4885 159.705 80.4885C131.396 80.4885 108.444 103.44 108.444 131.749C108.444 160.058 131.396 183.01 159.705 183.01Z"
+              ></path>
+            </svg>
+          </span>
+        </li>
+      </ul>
+      <!-- 空から混むの矢印 -->
+      <div class="crowd__legend">
+        <span class="crowd__legend-label">
+          <img src={Many.src} alt="混む" />
+        </span>
+        <span class="crowd__legend-arrow">
+          <img src={crowdArrow.src} alt="" />
+        </span>
+        <span class="crowd__legend-label">
+          <img src={Few.src} alt="空" />
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <style lang="scss">
   // 必要なmixin/functionをインポート
-  @import "../../../../styles/variables";
-  @import "../../../../styles/functions";
-  @import "../../../../styles/mixins";
+  @import '../../../../styles/variables';
+  @import '../../../../styles/functions';
+  @import '../../../../styles/mixins';
 
   // 混雑状況セクション
   .crowd {
-    background: rgba(124, 99, 81, 0.70);
+    background: rgba(124, 99, 81, 0.7);
     padding-top: spx(40);
     padding-bottom: spx(105);
     @include tablet-up {
-      padding-top: ppx(150 *1.2);
-      padding-bottom: ppx(250 *1.2);
+      padding-top: ppx(150 * 1.2);
+      padding-bottom: ppx(250 * 1.2);
     }
     @include desktop-up {
       padding-top: ppx(150);
@@ -166,7 +144,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
       justify-content: center;
       @include tablet-up {
         justify-content: flex-start;
-        gap: ppx(76 *1.2);
+        gap: ppx(76 * 1.2);
         margin-left: 38vw;
       }
       @include desktop-up {
@@ -181,7 +159,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
       gap: spx(10);
       @include tablet-up {
         align-items: center;
-        gap: ppx(10 *1.2);
+        gap: ppx(10 * 1.2);
       }
       @include desktop-up {
         gap: ppx(10);
@@ -189,16 +167,16 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
     }
 
     &__title {
-      color: var(--main_color_3, #F1EAE4);
-      font-family: "Zen Maru Gothic";
+      color: var(--main_color_3, #f1eae4);
+      font-family: 'Zen Maru Gothic';
       font-size: spx(46);
       font-style: normal;
       font-weight: 500;
       line-height: 140%; /* 64.4px */
       letter-spacing: spx(2.3);
       @include tablet-up {
-        font-size: ppx(65*1.2);
-        letter-spacing: ppx(3.25 *1.2);
+        font-size: ppx(65 * 1.2);
+        letter-spacing: ppx(3.25 * 1.2);
       }
       @include desktop-up {
         font-size: ppx(65);
@@ -207,16 +185,16 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
     }
 
     &__datetime {
-      color: var(--main_color_3, #F1EAE4);
-      font-family: "Zen Maru Gothic";
+      color: var(--main_color_3, #f1eae4);
+      font-family: 'Zen Maru Gothic';
       font-size: spx(26);
       font-style: normal;
       font-weight: 500;
       line-height: 100%; /* 26px */
       letter-spacing: spx(1.3);
       @include tablet-up {
-        font-size: ppx(33 *1.2);
-        letter-spacing: ppx(1.65 *1.2);
+        font-size: ppx(33 * 1.2);
+        letter-spacing: ppx(1.65 * 1.2);
         line-height: 180%; /* 59.4px */
       }
       @include desktop-up {
@@ -228,7 +206,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
     &__illustration {
       width: spx(136);
       @include tablet-up {
-        width: ppx(206 *1.2);
+        width: ppx(206 * 1.2);
       }
       @include desktop-up {
         width: ppx(206);
@@ -255,9 +233,9 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
       margin-top: spx(45);
       @include tablet-up {
         background-image: var(--bg-image);
-        width: ppx(1800 *1.2);
-        height: ppx(622 *1.2);
-        margin-top: ppx(60 *1.2);
+        width: ppx(1800 * 1.2);
+        height: ppx(622 * 1.2);
+        margin-top: ppx(60 * 1.2);
       }
       @include desktop-up {
         width: ppx(1800);
@@ -273,8 +251,8 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
       gap: spx(10);
       padding-top: spx(25);
       @include tablet-up {
-        gap: ppx(30 *1.2);
-        padding-top: ppx(60 *1.2);
+        gap: ppx(30 * 1.2);
+        padding-top: ppx(60 * 1.2);
       }
       @include desktop-up {
         gap: ppx(30);
@@ -308,7 +286,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
       &.first {
         gap: spx(17);
         @include tablet-up {
-          gap: ppx(34 *1.2);
+          gap: ppx(34 * 1.2);
         }
         @include desktop-up {
           gap: ppx(34);
@@ -316,7 +294,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
         .crowd__icon {
           width: spx(63);
           @include tablet-up {
-            width: ppx(157 *1.2);
+            width: ppx(157 * 1.2);
           }
           @include desktop-up {
             width: ppx(157);
@@ -327,8 +305,8 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
         gap: spx(34);
         margin: 0 spx(69) 0 spx(95);
         @include tablet-up {
-          gap: ppx(34 *1.2);
-          margin: 0 ppx(271 *1.2) 0 ppx(353 *1.2);
+          gap: ppx(34 * 1.2);
+          margin: 0 ppx(271 * 1.2) 0 ppx(353 * 1.2);
         }
         @include desktop-up {
           gap: ppx(34);
@@ -337,7 +315,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
         .crowd__icon {
           width: spx(133);
           @include tablet-up {
-            width: ppx(329 *1.2);
+            width: ppx(329 * 1.2);
           }
           @include desktop-up {
             width: ppx(329);
@@ -347,7 +325,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
       &.third {
         gap: ppx(20);
         @include tablet-up {
-          gap: ppx(20 *1.2);
+          gap: ppx(20 * 1.2);
         }
         @include desktop-up {
           gap: ppx(20);
@@ -355,7 +333,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
         .crowd__icon {
           width: spx(129);
           @include tablet-up {
-            width: ppx(319 *1.2);
+            width: ppx(319 * 1.2);
           }
           @include desktop-up {
             width: ppx(319);
@@ -369,7 +347,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
       width: spx(20);
       height: auto;
       @include tablet-up {
-        width: ppx(51 *1.2);
+        width: ppx(51 * 1.2);
       }
       @include desktop-up {
         width: ppx(51);
@@ -380,7 +358,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
         width: spx(20);
         height: auto;
         @include tablet-up {
-          width: ppx(51 *1.2);
+          width: ppx(51 * 1.2);
         }
         @include desktop-up {
           width: ppx(51);
@@ -404,7 +382,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
         @include desktop-up {
         }
         path {
-          fill: var(--main_color_1, #7C6351);
+          fill: var(--main_color_1, #7c6351);
         }
       }
     }
@@ -414,7 +392,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
       align-items: center;
       gap: spx(20);
       @include tablet-up {
-        gap: ppx(20 *1.2);
+        gap: ppx(20 * 1.2);
       }
       @include desktop-up {
         gap: ppx(20);
@@ -426,7 +404,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
       width: spx(60);
       height: auto;
       @include tablet-up {
-        width: ppx(119 *1.2);
+        width: ppx(119 * 1.2);
       }
       @include desktop-up {
         width: ppx(119);
@@ -450,7 +428,7 @@ const cardBodyBgImage = await getImage({ src: CardBodyBg });
       width: spx(290);
       height: auto;
       @include tablet-up {
-        width: ppx(984 *1.2);
+        width: ppx(984 * 1.2);
       }
       @include desktop-up {
         width: ppx(984);
